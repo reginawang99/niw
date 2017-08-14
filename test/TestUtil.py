@@ -32,6 +32,18 @@ class TestUtil(unittest.TestCase):
         self.assertIs(Util().isNumber("0"), True)
         self.assertIs(Util().isNumber(1.1), True)
         self.assertIs(Util().isNumber("house"), False)
+        
+    def test_isPrinting(self):
+        self.assertIs(Util().isPrinting("print", None), False)
+        self.assertIs(Util().isPrinting("print('')", None), True)
+        self.assertIs(Util().isPrinting("print()", None), True)
+        self.assertIs(Util().isPrinting("print(\"\")", None), True)
+        self.assertIs(Util().isPrinting("variable = print", None), False)
+        self.assertIs(Util().isPrinting("print 'hello world'", None), False) 
+        
+    def test_getFileName(self):   
+        self.assertEqual(['sys.agrv[]2', 32, 'with open(mode=sys.agrv[]1,file=sys.agrv[]2) as d:', False],Util().getFileName("with open(mode = sys.agrv[]1,file = sys.agrv[]2) as d:"))
+        self.assertEqual(['sys.agrv[]2', 32, 'with open(mode=sys.agrv[]1,file=sys.agrv[]2) as d:', False],Util().getFileName("with open(mode = sys.agrv[]1,file = sys.agrv[]2) as d:"))
 
-if __name__ == '__main__'      
+if __name__ == '__main__':     
     unittest.main()

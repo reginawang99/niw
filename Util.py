@@ -2,10 +2,7 @@
 
 class Util(object):
 
-    # ## Utility Functions
-    
-    # In[ ]:
-    
+    # ## Utility Functions    
     # find first opening quote
     def findFirstQuote(self,st):
         if not "'" in st and not '"' in st:
@@ -45,16 +42,14 @@ class Util(object):
                 return True   
         return False 
     
-    # # Cleaning up the notebook cells
-    # Count the number of spaces in a string.
-        
+    # Count the number of spaces in a string. 
     def spaces(self,s):
         k = 0
         while k < len(s) and s[k] == " ":
             k=k+1
         return k 
     
-    
+    # get the file name
     def getFileName(self,st):
         t = st[st.index("(")+1:st.rfind(")")]
         ind = st.index("(")+1
@@ -63,10 +58,11 @@ class Util(object):
             ind = ind + t.find("file=")+5
             t = t[t.find("file=")+5:]
         t = t[:t.find("]")+2]
-        if st.count("=")==0 or st.find("=")>st.find("("):
+        # TODO: what it means?
+        if st.count("=") == 0 or st.find("=") > st.find("("):
             return [t,ind,st[:st.index("(")]+st[st.index("("):st.rfind(")")].replace(" ","")+st[st.rfind(")"):],False]
         else:
-            return[t,ind,st[:st.index("(")]+st[st.index("("):st.rfind(")")].replace(" ","")+st[st.rfind(")"):],               True,st[:st.find("=")].replace(" ","")]
+            return[t,ind,st[:st.index("(")]+st[st.index("("):st.rfind(")")].replace(" ","")+st[st.rfind(")"):],True,st[:st.find("=")].replace(" ","")]
     
     def getMode(self,st,fileName):
         t = st[st.index("(")+1:st.rfind(")")]
@@ -80,13 +76,15 @@ class Util(object):
     
     def buffering(self,st):
         t = st[st.index("(")+1:st.rfind(")")]
-        a = t.split(",");i = 0
+        a = t.split(",")
+        i = 0
         while i < len(a):
             if not "sys.agrv[" in a[i]:
                 return a[i]
             i+=1
         return -1
     
+    # add zeros up to 5 digits
     def addZeros(self,num):
         st = str(num)
         while len(st) < 5:
@@ -98,7 +96,8 @@ class Util(object):
     def isPrinting(self,st,i):
         st = st.replace('"',"'")
         if st.find("print(") > -1 and (st.find("'") == -1 or st.find("'") > st.find("print(")):
-            return True  
+            return True 
+        return False 
         
     # what kind of check?
     def checkForVariable(self,i,j,k,s):
@@ -124,14 +123,7 @@ class Util(object):
             int(char)
             return True
         except ValueError:
-            return False
-            
-    # add zeros up to 5 digits
-    def addZeros(self,num):
-        st = str(num)
-        while len(st) < 5:
-            st = "0"+st
-        return st
+            return False            
     
     def inCode(self,methName,lineCode):
         lineCode.replace('"',"'")
