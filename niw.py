@@ -11,9 +11,9 @@ import nbformat as nbf
 from  nbformat.v4.nbbase import (new_code_cell, new_markdown_cell)
 import os
 import zipfile
-from Util import Util
+from util import Util
 
-class MakeFlowPy(object):
+class NiW(object):
  
     # ### Data
     # 

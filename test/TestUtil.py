@@ -1,5 +1,5 @@
 # coding: utf-8
-from Util import Util
+from util import Util
 import unittest
 class TestUtil(unittest.TestCase):
  
