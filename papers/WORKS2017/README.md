@@ -22,6 +22,6 @@ Institutions
 
 ACKNOWLEDGMENTS
 * US National Science Foundation (NSF)
-* the Sao Paulo Research Foundation (FAPESP) under grants
+* the Sao Paulo Research Foundation (FAPESP)
 * Jeremy White and Zachary Stanko
 * Thank to many collaborators for their feedback on this work
