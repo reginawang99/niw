@@ -50,7 +50,7 @@ class NiW(object):
     # </ul>
     def setNotebook(self, filepath):
         if not os.path.exists(filepath):
-            raise Exception("File does not exist!"+filepath)
+            raise Exception("File does not exist: "+filepath)
         
         # inform notebook file
         with open(filepath,"r") as r:
@@ -596,7 +596,7 @@ class NiW(object):
                     fName = 0
                     while os.path.isfile("./workflow/"+newVariables[i][2*var]+str(fName)):
                         fName+=1
-                    with open("workflow/"+newVariables[i][2*var]+str(fName),"w") as write:
+                    with open("workflow/"+newVariables[i][2*var]+str(fName)+".txt","w") as write:
                         write.write(line)
                     stdIn[i].append([newVariables[i][2*var],newVariables[i][2*var+1],newVariables[i][2*var]+str(fName)])
                 var = var+1
@@ -792,7 +792,7 @@ class NiW(object):
         nb['cells'] = c
 
         # create new restructured notebook file
-        with open("notebook/test.ipynb",'w') as w:
+        with open("notebook/modified-notebook.ipynb",'w') as w:
             nbf.write(nb,w)
 
 
@@ -864,17 +864,20 @@ class NiW(object):
             zipf.write('workflow/run') 
             zipf.write('workflow/Component'+str(i+1)+'.py')
             zipf.close()
+            os.remove('workflow/Component'+str(i+1)+'.py')
+        os.remove("workflow/io.sh")
+        os.remove("workflow/run")
 
     def createMetadata(self):
         input = self.input
         output = self.output
         param = self.param
         # Create inputs metadata files.
-        with open("workflow/input","w") as w:
+        with open("workflow/inputs.txt","w") as w:
             w.write(str(input))
                 
         # Params metadata files.        
-        with open("workflow/param","w") as w:
+        with open("workflow/params.txt","w") as w:
             w.write(str(param))
                 
         # Outputs metadata files.            
@@ -884,7 +887,7 @@ class NiW(object):
             for j in range(0,len(output[i])):
                 out[i].append(output[i][j][0])
                 
-        with open("workflow/output","w") as w:
+        with open("workflow/outputs.txt","w") as w:
             w.write(str(out))
             
 if __name__ == "__main__":
