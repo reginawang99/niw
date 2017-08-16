@@ -12,6 +12,7 @@ from  nbformat.v4.nbbase import (new_code_cell, new_markdown_cell)
 import os
 import zipfile
 from util import Util
+import sys
 
 class NiW(object):
  
@@ -47,7 +48,10 @@ class NiW(object):
     # <li>Grab cells, put back code to cells to notebook, run code, and save result to a notebook.</li>
     # <li>Check if the code cells' language is in Python.</li>
     # </ul>
-    def setNotebook(self, filepath = "notebook/Disease+Analysis.ipynb"):
+    def setNotebook(self, filepath):
+        if not os.path.exists(filepath):
+            raise Exception("File does not exist!"+filepath)
+        
         # inform notebook file
         with open(filepath,"r") as r:
             # nbconvert format version = 3
@@ -884,8 +888,13 @@ class NiW(object):
             w.write(str(out))
             
 if __name__ == "__main__":
-    mfp = MakeFlowPy()
-    mfp.setNotebook()
+    if len(sys.argv) > 1:
+        file_path = sys.argv[1]
+    else:
+        file_path = "notebook/Disease+Analysis.ipynb"
+        
+    mfp = NiW()
+    mfp.setNotebook(file_path)
     files = mfp.preProcessing()
     mfp.comments()
     mfp.newLines()
