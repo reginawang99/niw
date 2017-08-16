@@ -41,6 +41,8 @@ class NiW(object):
         self.allVar = None
         self.index = None
         self.runFiles = None
+        self.dirPath = "workflow"
+        self.workflowName = None
         
     # ## Grab notebook cells information
     # <ul>
@@ -48,10 +50,20 @@ class NiW(object):
     # <li>Grab cells, put back code to cells to notebook, run code, and save result to a notebook.</li>
     # <li>Check if the code cells' language is in Python.</li>
     # </ul>
+    def setWorkflowName(self, filepath):
+        import re
+        filename = filepath.split("/")[-1]
+        filename = filename.replace(u".ipynb","")
+        filename = filename.title()
+        filename = re.sub('[^A-Za-z0-9]+', '', filename)
+        self.dirPath = self.dirPath + "/" + filename
+        self.workflowName = filename
+    
     def setNotebook(self, filepath):
         if not os.path.exists(filepath):
             raise Exception("File does not exist: "+filepath)
         
+        self.setWorkflowName(filepath)
         # inform notebook file
         with open(filepath,"r") as r:
             # nbconvert format version = 3
@@ -594,7 +606,7 @@ class NiW(object):
                     parameters[i].append([newVariables[i][2*var],newVariables[i][2*var+1],"date",line])
                 else:
                     fName = 0
-                    while os.path.isfile("./workflow/"+newVariables[i][2*var]+str(fName)):
+                    while os.path.isfile("./" + self.dirPath + newVariables[i][2*var]+str(fName)):
                         fName+=1
                     with open("workflow/"+newVariables[i][2*var]+str(fName)+".txt","w") as write:
                         write.write(line)
@@ -792,7 +804,7 @@ class NiW(object):
         nb['cells'] = c
 
         # create new restructured notebook file
-        with open("notebook/modified-notebook.ipynb",'w') as w:
+        with open("notebook/" + self.workflowName + ".ipynb",'w') as w:
             nbf.write(nb,w)
 
 
@@ -864,7 +876,9 @@ class NiW(object):
             zipf.write('workflow/run') 
             zipf.write('workflow/Component'+str(i+1)+'.py')
             zipf.close()
+            #remove unnecessary files
             os.remove('workflow/Component'+str(i+1)+'.py')
+        #remove unnecessary files
         os.remove("workflow/io.sh")
         os.remove("workflow/run")
 
