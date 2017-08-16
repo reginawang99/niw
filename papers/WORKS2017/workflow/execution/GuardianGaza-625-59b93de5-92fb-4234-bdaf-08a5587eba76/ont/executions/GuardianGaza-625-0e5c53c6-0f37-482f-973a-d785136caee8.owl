@@ -1,0 +1,443 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://www.wings-workflows.org/ontology/workflow.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:j.1="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/data/ontology.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+      xml:base="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl">
+      <owl:Ontology rdf:about="">
+            <owl:imports rdf:resource="http://www.wings-workflows.org/ontology/workflow.owl"/>
+      </owl:Ontology>
+      <j.0:WorkflowTemplate rdf:ID="GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8">
+            <j.0:hasInputRole>
+                  <j.0:Role rdf:ID="api_key_irole">
+                        <j.0:mapsToVariable>
+                              <j.0:ParameterVariable rdf:ID="api_key">
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >center:x=450.00353317260743,y=29.97601318359375</rdfs:comment>
+                                    <j.0:derivedFrom rdf:resource="../workflows/GuardianGaza.owl#api_key"/>
+                                    <j.0:hasParameterValue rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >AIzaSyCbcgzVUWKYNgdoM-h23ZoDvi6_tr_nYYU</j.0:hasParameterValue>
+                              </j.0:ParameterVariable>
+                        </j.0:mapsToVariable>
+                        <j.0:hasRoleID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >api_key</j.0:hasRoleID>
+                        <j.0:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.0:hasDimensionality>
+                  </j.0:Role>
+            </j.0:hasInputRole>
+            <j.0:hasLink>
+                  <j.0:InOutLink rdf:ID="dataModified_Component2_node_dataModified_1_To_Output_0002">
+                        <j.0:hasDestinationNode>
+                              <j.0:Node rdf:ID="Component3Node">
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >center:x=674.4008644104005,y=443.3184127807617</rdfs:comment>
+                                    <j.0:hasComponent>
+                                          <rdf:Description rdf:ID="Component3">
+                                                <j.0:hasComponentBinding rdf:resource="../components/library.owl#Component3"/>
+                                                <j.0:isConcrete
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#boolean"
+                                                >true</j.0:isConcrete>
+                                          </rdf:Description>
+                                    </j.0:hasComponent>
+                                    <j.0:hasInputPort>
+                                          <j.0:Port rdf:ID="Component3_node_data_0002">
+                                                <j.0:satisfiesRole>
+                                                      <rdf:Description rdf:ID="Component3_node_data_role">
+                                                            <j.0:hasRoleID
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >data</j.0:hasRoleID>
+                                                            <j.0:hasDimensionality
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#integer"
+                                                            >0</j.0:hasDimensionality>
+                                                      </rdf:Description>
+                                                </j.0:satisfiesRole>
+                                          </j.0:Port>
+                                    </j.0:hasInputPort>
+                                    <j.0:hasOutputPort>
+                                          <j.0:Port rdf:ID="Component3_node_figure_2">
+                                                <j.0:satisfiesRole>
+                                                      <rdf:Description rdf:ID="Component3_node_figure_role">
+                                                            <j.0:hasRoleID
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >figure</j.0:hasRoleID>
+                                                            <j.0:hasDimensionality
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#integer"
+                                                            >0</j.0:hasDimensionality>
+                                                      </rdf:Description>
+                                                </j.0:satisfiesRole>
+                                          </j.0:Port>
+                                    </j.0:hasOutputPort>
+                                    <j.0:canRunOn rdf:resource="http://www.wings-workflows.org/ontology/resource.owl#Localhost"/>
+                                    <j.0:derivedFrom rdf:resource="../workflows/GuardianGaza.owl#Component3_node"/>
+                              </j.0:Node>
+                        </j.0:hasDestinationNode>
+                        <j.0:hasDestinationPort rdf:resource="#Component3_node_data_0002"/>
+                        <j.0:hasOriginNode>
+                              <j.0:Node rdf:ID="Component2Node">
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >center:x=450.00353317260743,y=277.98241424560547</rdfs:comment>
+                                    <j.0:hasComponent>
+                                          <rdf:Description rdf:ID="Component2">
+                                                <j.0:hasComponentBinding rdf:resource="../components/library.owl#Component2"/>
+                                                <j.0:isConcrete
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#boolean"
+                                                >true</j.0:isConcrete>
+                                          </rdf:Description>
+                                    </j.0:hasComponent>
+                                    <j.0:hasInputPort>
+                                          <j.0:Port rdf:ID="Component2_node_data_0001">
+                                                <j.0:satisfiesRole>
+                                                      <rdf:Description rdf:ID="Component2_node_data_role">
+                                                            <j.0:hasRoleID
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >data</j.0:hasRoleID>
+                                                            <j.0:hasDimensionality
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#integer"
+                                                            >0</j.0:hasDimensionality>
+                                                      </rdf:Description>
+                                                </j.0:satisfiesRole>
+                                          </j.0:Port>
+                                    </j.0:hasInputPort>
+                                    <j.0:hasOutputPort>
+                                          <j.0:Port rdf:ID="Component2_node_dataModified_1">
+                                                <j.0:satisfiesRole>
+                                                      <rdf:Description rdf:ID="Component2_node_dataModified_role">
+                                                            <j.0:hasRoleID
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >dataModified</j.0:hasRoleID>
+                                                            <j.0:hasDimensionality
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#integer"
+                                                            >0</j.0:hasDimensionality>
+                                                      </rdf:Description>
+                                                </j.0:satisfiesRole>
+                                          </j.0:Port>
+                                    </j.0:hasOutputPort>
+                                    <j.0:canRunOn rdf:resource="http://www.wings-workflows.org/ontology/resource.owl#Localhost"/>
+                                    <j.0:derivedFrom rdf:resource="../workflows/GuardianGaza.owl#Component2_node"/>
+                              </j.0:Node>
+                        </j.0:hasOriginNode>
+                        <j.0:hasOriginPort rdf:resource="#Component2_node_dataModified_1"/>
+                        <j.0:hasVariable>
+                              <j.0:DataVariable rdf:ID="dataModified">
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >center:x=450.00353317260743,y=360.65281677246094</rdfs:comment>
+                                    <j.0:hasDataBinding rdf:resource="../data/library.owl#dataModified-2ltle6p9awg7ajkd98sz2pmts"/>
+                                    <j.0:derivedFrom rdf:resource="../workflows/GuardianGaza.owl#dataModified"/>
+                              </j.0:DataVariable>
+                        </j.0:hasVariable>
+                  </j.0:InOutLink>
+            </j.0:hasLink>
+            <j.0:hasLink>
+                  <j.0:InOutLink rdf:ID="dataModified_Component2_node_dataModified_1_To_Output_0001">
+                        <j.0:hasDestinationNode rdf:resource="#Component3Node"/>
+                        <j.0:hasDestinationPort rdf:resource="#Component3_node_data_0002"/>
+                        <j.0:hasOriginNode rdf:resource="#Component2Node"/>
+                        <j.0:hasOriginPort rdf:resource="#Component2_node_dataModified_1"/>
+                        <j.0:hasVariable rdf:resource="#dataModified"/>
+                  </j.0:InOutLink>
+            </j.0:hasLink>
+            <j.0:hasLink>
+                  <j.0:InputLink rdf:ID="api_key_To_Component1_node_api_key_0000">
+                        <j.0:hasDestinationNode>
+                              <j.0:Node rdf:ID="Component1Node">
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >center:x=450.00353317260743,y=112.65119934082031</rdfs:comment>
+                                    <j.0:hasComponent>
+                                          <rdf:Description rdf:ID="Component1">
+                                                <j.0:hasComponentBinding rdf:resource="../components/library.owl#Component1"/>
+                                                <j.0:isConcrete
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#boolean"
+                                                >true</j.0:isConcrete>
+                                          </rdf:Description>
+                                    </j.0:hasComponent>
+                                    <j.0:hasInputPort>
+                                          <j.0:Port rdf:ID="Component1_node_api_key_0000">
+                                                <j.0:satisfiesRole>
+                                                      <rdf:Description rdf:ID="Component1_node_api_key_role">
+                                                            <j.0:hasRoleID
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >api_key</j.0:hasRoleID>
+                                                            <j.0:hasDimensionality
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#integer"
+                                                            >0</j.0:hasDimensionality>
+                                                      </rdf:Description>
+                                                </j.0:satisfiesRole>
+                                          </j.0:Port>
+                                    </j.0:hasInputPort>
+                                    <j.0:hasOutputPort>
+                                          <j.0:Port rdf:ID="Component1_node_data_0">
+                                                <j.0:satisfiesRole>
+                                                      <rdf:Description rdf:ID="Component1_node_data_role">
+                                                            <j.0:hasRoleID
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >data</j.0:hasRoleID>
+                                                            <j.0:hasDimensionality
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#integer"
+                                                            >0</j.0:hasDimensionality>
+                                                      </rdf:Description>
+                                                </j.0:satisfiesRole>
+                                          </j.0:Port>
+                                    </j.0:hasOutputPort>
+                                    <j.0:canRunOn rdf:resource="http://www.wings-workflows.org/ontology/resource.owl#Localhost"/>
+                                    <j.0:derivedFrom rdf:resource="../workflows/GuardianGaza.owl#Component1_node"/>
+                              </j.0:Node>
+                        </j.0:hasDestinationNode>
+                        <j.0:hasDestinationPort rdf:resource="#Component1_node_api_key_0000"/>
+                        <j.0:hasVariable rdf:resource="#api_key"/>
+                  </j.0:InputLink>
+            </j.0:hasLink>
+            <j.0:hasLink>
+                  <j.0:OutputLink rdf:ID="figure1_Component5_node_figure_4_To_Output">
+                        <j.0:hasOriginNode>
+                              <j.0:Node rdf:ID="Component5Node">
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >center:x=219.00088329315187,y=443.3184127807617</rdfs:comment>
+                                    <j.0:hasComponent>
+                                          <rdf:Description rdf:ID="Component5">
+                                                <j.0:hasComponentBinding rdf:resource="../components/library.owl#Component5"/>
+                                                <j.0:isConcrete
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#boolean"
+                                                >true</j.0:isConcrete>
+                                          </rdf:Description>
+                                    </j.0:hasComponent>
+                                    <j.0:hasInputPort>
+                                          <j.0:Port rdf:ID="Component5_node_data_0004">
+                                                <j.0:satisfiesRole>
+                                                      <rdf:Description rdf:ID="Component5_node_data_role">
+                                                            <j.0:hasRoleID
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >data</j.0:hasRoleID>
+                                                            <j.0:hasDimensionality
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#integer"
+                                                            >0</j.0:hasDimensionality>
+                                                      </rdf:Description>
+                                                </j.0:satisfiesRole>
+                                          </j.0:Port>
+                                    </j.0:hasInputPort>
+                                    <j.0:hasOutputPort>
+                                          <j.0:Port rdf:ID="Component5_node_figure_4">
+                                                <j.0:satisfiesRole>
+                                                      <rdf:Description rdf:ID="Component5_node_figure_role">
+                                                            <j.0:hasRoleID
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >figure</j.0:hasRoleID>
+                                                            <j.0:hasDimensionality
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#integer"
+                                                            >0</j.0:hasDimensionality>
+                                                      </rdf:Description>
+                                                </j.0:satisfiesRole>
+                                          </j.0:Port>
+                                    </j.0:hasOutputPort>
+                                    <j.0:canRunOn rdf:resource="http://www.wings-workflows.org/ontology/resource.owl#Localhost"/>
+                                    <j.0:derivedFrom rdf:resource="../workflows/GuardianGaza.owl#Component5_node"/>
+                              </j.0:Node>
+                        </j.0:hasOriginNode>
+                        <j.0:hasOriginPort rdf:resource="#Component5_node_figure_4"/>
+                        <j.0:hasVariable>
+                              <j.0:DataVariable rdf:ID="figure1">
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >center:x=158.5,y=525.9840087890625</rdfs:comment>
+                                    <j.0:hasDataBinding rdf:resource="../data/library.owl#figure1-9w4ag02kw7bdhvnefw492gak2"/>
+                                    <j.0:derivedFrom rdf:resource="../workflows/GuardianGaza.owl#figure1"/>
+                              </j.0:DataVariable>
+                        </j.0:hasVariable>
+                  </j.0:OutputLink>
+            </j.0:hasLink>
+            <j.0:hasLink>
+                  <j.0:InOutLink rdf:ID="dataModified_Component2_node_dataModified_1_To_Output">
+                        <j.0:hasDestinationNode rdf:resource="#Component3Node"/>
+                        <j.0:hasDestinationPort rdf:resource="#Component3_node_data_0002"/>
+                        <j.0:hasOriginNode rdf:resource="#Component2Node"/>
+                        <j.0:hasOriginPort rdf:resource="#Component2_node_dataModified_1"/>
+                        <j.0:hasVariable rdf:resource="#dataModified"/>
+                  </j.0:InOutLink>
+            </j.0:hasLink>
+            <j.0:hasLink>
+                  <j.0:OutputLink rdf:ID="figure_Component3_node_figure_2_To_Output">
+                        <j.0:hasOriginNode rdf:resource="#Component3Node"/>
+                        <j.0:hasOriginPort rdf:resource="#Component3_node_figure_2"/>
+                        <j.0:hasVariable>
+                              <j.0:DataVariable rdf:ID="figure">
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >center:x=728.2964668273926,y=525.9840087890625</rdfs:comment>
+                                    <j.0:hasDataBinding rdf:resource="../data/library.owl#figure-2kx5zsa20e68valm3o6lzwb86"/>
+                                    <j.0:derivedFrom rdf:resource="../workflows/GuardianGaza.owl#figure"/>
+                              </j.0:DataVariable>
+                        </j.0:hasVariable>
+                  </j.0:OutputLink>
+            </j.0:hasLink>
+            <j.0:hasLink>
+                  <j.0:InOutLink rdf:ID="dataModified_Component2_node_dataModified_1_To_Component5_node_data_0004">
+                        <j.0:hasDestinationNode rdf:resource="#Component5Node"/>
+                        <j.0:hasDestinationPort rdf:resource="#Component5_node_data_0004"/>
+                        <j.0:hasOriginNode rdf:resource="#Component2Node"/>
+                        <j.0:hasOriginPort rdf:resource="#Component2_node_dataModified_1"/>
+                        <j.0:hasVariable rdf:resource="#dataModified"/>
+                  </j.0:InOutLink>
+            </j.0:hasLink>
+            <j.0:hasLink>
+                  <j.0:InOutLink rdf:ID="data_Component1_node_data_0_To_Output">
+                        <j.0:hasDestinationNode rdf:resource="#Component2Node"/>
+                        <j.0:hasDestinationPort rdf:resource="#Component2_node_data_0001"/>
+                        <j.0:hasOriginNode rdf:resource="#Component1Node"/>
+                        <j.0:hasOriginPort rdf:resource="#Component1_node_data_0"/>
+                        <j.0:hasVariable>
+                              <j.0:DataVariable rdf:ID="data">
+                                    <rdf:type rdf:resource="../data/ontology.owl#File"/>
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >center:x=450.00353317260743,y=195.3168182373047</rdfs:comment>
+                                    <j.0:hasDataBinding rdf:resource="../data/library.owl#data-jzen4pawwen945770fclfau"/>
+                                    <j.0:derivedFrom rdf:resource="../workflows/GuardianGaza.owl#data"/>
+                              </j.0:DataVariable>
+                        </j.0:hasVariable>
+                  </j.0:InOutLink>
+            </j.0:hasLink>
+            <j.0:hasLink>
+                  <j.0:OutputLink rdf:ID="figure2_Component4_node_figure_3_To_Output">
+                        <j.0:hasOriginNode>
+                              <j.0:Node rdf:ID="Component4Node">
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >center:x=450.00353317260743,y=443.3184127807617</rdfs:comment>
+                                    <j.0:hasComponent>
+                                          <rdf:Description rdf:ID="Component4">
+                                                <j.0:hasComponentBinding rdf:resource="../components/library.owl#Component4"/>
+                                                <j.0:isConcrete
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#boolean"
+                                                >true</j.0:isConcrete>
+                                          </rdf:Description>
+                                    </j.0:hasComponent>
+                                    <j.0:hasInputPort>
+                                          <j.0:Port rdf:ID="Component4_node_data_0003">
+                                                <j.0:satisfiesRole>
+                                                      <rdf:Description rdf:ID="Component4_node_data_role">
+                                                            <j.0:hasRoleID
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >data</j.0:hasRoleID>
+                                                            <j.0:hasDimensionality
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#integer"
+                                                            >0</j.0:hasDimensionality>
+                                                      </rdf:Description>
+                                                </j.0:satisfiesRole>
+                                          </j.0:Port>
+                                    </j.0:hasInputPort>
+                                    <j.0:hasOutputPort>
+                                          <j.0:Port rdf:ID="Component4_node_figure_3">
+                                                <j.0:satisfiesRole>
+                                                      <rdf:Description rdf:ID="Component4_node_figure_role">
+                                                            <j.0:hasRoleID
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >figure</j.0:hasRoleID>
+                                                            <j.0:hasDimensionality
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#integer"
+                                                            >0</j.0:hasDimensionality>
+                                                      </rdf:Description>
+                                                </j.0:satisfiesRole>
+                                          </j.0:Port>
+                                    </j.0:hasOutputPort>
+                                    <j.0:canRunOn rdf:resource="http://www.wings-workflows.org/ontology/resource.owl#Localhost"/>
+                                    <j.0:derivedFrom rdf:resource="../workflows/GuardianGaza.owl#Component4_node"/>
+                              </j.0:Node>
+                        </j.0:hasOriginNode>
+                        <j.0:hasOriginPort rdf:resource="#Component4_node_figure_3"/>
+                        <j.0:hasVariable>
+                              <j.0:DataVariable rdf:ID="figure2">
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >center:x=448.90263099670415,y=525.9840087890625</rdfs:comment>
+                                    <j.0:hasDataBinding rdf:resource="../data/library.owl#figure2-cfevnbu6afrps38yaewygjczy"/>
+                                    <j.0:derivedFrom rdf:resource="../workflows/GuardianGaza.owl#figure2"/>
+                              </j.0:DataVariable>
+                        </j.0:hasVariable>
+                  </j.0:OutputLink>
+            </j.0:hasLink>
+            <j.0:hasLink>
+                  <j.0:InOutLink rdf:ID="dataModified_Component2_node_dataModified_1_To_Component4_node_data_0003">
+                        <j.0:hasDestinationNode rdf:resource="#Component4Node"/>
+                        <j.0:hasDestinationPort rdf:resource="#Component4_node_data_0003"/>
+                        <j.0:hasOriginNode rdf:resource="#Component2Node"/>
+                        <j.0:hasOriginPort rdf:resource="#Component2_node_dataModified_1"/>
+                        <j.0:hasVariable rdf:resource="#dataModified"/>
+                  </j.0:InOutLink>
+            </j.0:hasLink>
+            <j.0:hasMetadata>
+                  <j.0:Metadata rdf:ID="GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8_meta">
+                        <j.0:hasContributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >adminUser</j.0:hasContributor>
+                  </j.0:Metadata>
+            </j.0:hasMetadata>
+            <j.0:hasNode rdf:resource="#Component5Node"/>
+            <j.0:hasNode rdf:resource="#Component4Node"/>
+            <j.0:hasNode rdf:resource="#Component3Node"/>
+            <j.0:hasNode rdf:resource="#Component2Node"/>
+            <j.0:hasNode rdf:resource="#Component1Node"/>
+            <j.0:hasOutputRole>
+                  <j.0:Role rdf:ID="figure1_orole">
+                        <j.0:mapsToVariable rdf:resource="#figure1"/>
+                        <j.0:hasRoleID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >figure1</j.0:hasRoleID>
+                        <j.0:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.0:hasDimensionality>
+                  </j.0:Role>
+            </j.0:hasOutputRole>
+            <j.0:hasOutputRole>
+                  <j.0:Role rdf:ID="figure_orole">
+                        <j.0:mapsToVariable rdf:resource="#figure"/>
+                        <j.0:hasRoleID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >figure</j.0:hasRoleID>
+                        <j.0:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.0:hasDimensionality>
+                  </j.0:Role>
+            </j.0:hasOutputRole>
+            <j.0:hasOutputRole>
+                  <j.0:Role rdf:ID="figure2_orole">
+                        <j.0:mapsToVariable rdf:resource="#figure2"/>
+                        <j.0:hasRoleID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >figure2</j.0:hasRoleID>
+                        <j.0:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.0:hasDimensionality>
+                  </j.0:Role>
+            </j.0:hasOutputRole>
+            <j.0:hasVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >3</j.0:hasVersion>
+      </j.0:WorkflowTemplate>
+</rdf:RDF>
+

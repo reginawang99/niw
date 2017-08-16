@@ -1,0 +1,16 @@
+#!/bin/bash
+
+checkExitCode() {
+if [ $? -ne 0 ]; then
+    echo "Error"
+    exit 1;
+fi
+}
+
+BASEDIR=`dirname $0`
+
+. $BASEDIR/io.sh 0 3 1 "$@"
+
+python $BASEDIR/Component1.py $PARAMS1 $PARAMS2 $PARAMS3 $OUTPUTS1
+
+checkExitCode

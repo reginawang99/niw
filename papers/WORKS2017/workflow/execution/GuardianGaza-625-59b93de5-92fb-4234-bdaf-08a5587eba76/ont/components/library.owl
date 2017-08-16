@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://www.wings-workflows.org/ontology/resource.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:j.1="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/components/ontology.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:j.2="http://www.wings-workflows.org/ontology/component.owl#"
+    xmlns:j.3="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/components/library.owl#"
+      xml:base="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/components/library.owl">
+      <owl:Class rdf:ID="VisualizationClass">
+            <rdfs:subClassOf rdf:resource="http://www.wings-workflows.org/ontology/component.owl#Component"/>
+      </owl:Class>
+      <owl:Class rdf:ID="TransformDataClass">
+            <rdfs:subClassOf rdf:resource="http://www.wings-workflows.org/ontology/component.owl#Component"/>
+      </owl:Class>
+      <owl:Class rdf:ID="Component1Class">
+            <rdfs:subClassOf>
+                  <owl:Class rdf:ID="FetchAndSaveFileClass"/>
+            </rdfs:subClassOf>
+      </owl:Class>
+      <owl:Class rdf:ID="Component5Class">
+            <rdfs:subClassOf rdf:resource="#VisualizationClass"/>
+      </owl:Class>
+      <owl:Class rdf:ID="Component3Class">
+            <rdfs:subClassOf rdf:resource="#VisualizationClass"/>
+      </owl:Class>
+      <owl:Class rdf:about="#FetchAndSaveFileClass">
+            <rdfs:subClassOf rdf:resource="http://www.wings-workflows.org/ontology/component.owl#Component"/>
+      </owl:Class>
+      <owl:Class rdf:ID="Component2Class">
+            <rdfs:subClassOf rdf:resource="#TransformDataClass"/>
+      </owl:Class>
+      <owl:Class rdf:ID="Component4Class">
+            <rdfs:subClassOf rdf:resource="#VisualizationClass"/>
+      </owl:Class>
+      <j.3:Component3Class rdf:ID="Component3">
+            <j.2:hasInput>
+                  <j.2:DataArgument rdf:ID="Component3_data">
+                        <rdf:type rdf:resource="../data/ontology.owl#File"/>
+                        <j.2:hasArgumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >data</j.2:hasArgumentID>
+                        <j.2:hasArgumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-i1</j.2:hasArgumentName>
+                        <j.2:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.2:hasDimensionality>
+                  </j.2:DataArgument>
+            </j.2:hasInput>
+            <j.2:hasOutput>
+                  <j.2:DataArgument rdf:ID="Component3_figure">
+                        <rdf:type rdf:resource="../data/ontology.owl#File"/>
+                        <j.2:hasArgumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >figure</j.2:hasArgumentID>
+                        <j.2:hasArgumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-o1</j.2:hasArgumentName>
+                        <j.2:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.2:hasDimensionality>
+                  </j.2:DataArgument>
+            </j.2:hasOutput>
+            <j.2:hasDocumentation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >&lt;div class="cell text_cell unselected rendered" tabindex="2" style="font-family: undefined; box-sizing: border-box; -webkit-box-orient: horizontal; -webkit-box-align: stretch; display: flex; flex-direction: row; align-items: stretch; border-radius: 2px; border-width: 1px; border-style: solid; border-color: transparent; width: 1110px; padding: 5px; margin: 0px; outline: none; position: relative; overflow: visible;"&gt;&lt;div class="inner_cell" style="box-sizing: border-box; min-width: 0px; -webkit-box-orient: vertical; -webkit-box-align: stretch; display: flex; flex-direction: column; align-items: stretch; -webkit-box-flex: 1; flex: 1 1 0%;"&gt;&lt;div class="text_cell_render rendered_html" tabindex="-1" style="box-sizing: border-box; outline: none; resize: none; width: inherit; border-style: none; padding: 0.5em 0.5em 0.5em 0.4em; overflow-x: auto; overflow-y: hidden;"&gt;&lt;h2 id="Very-basic-descriptive-analysis" style="color: inherit; font-family: inherit; font-size: 21.994px; box-sizing: border-box; line-height: 1; margin: 0.636em 0px 0px;"&gt;Very basic descriptive analysis&lt;a class="anchor-link" href="http://96.126.101.215:8888/notebooks/WORKS2017/guardian_gaza-v1.ipynb#Very-basic-descriptive-analysis" style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration-line: none; padding: 0px 20px; visibility: hidden;"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="cell text_cell unselected rendered" tabindex="2" style="font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; font-size: 14px; box-sizing: border-box; -webkit-box-orient: horizontal; -webkit-box-align: stretch; display: flex; flex-direction: row; align-items: stretch; border-radius: 2px; border-width: 1px; border-style: solid; border-color: transparent; width: 1110px; padding: 5px; margin: 0px; outline: none; position: relative; overflow: visible;"&gt;&lt;div class="prompt input_prompt" style="box-sizing: border-box; min-width: 14ex; padding: 0px 0.4em; margin: 0px; font-family: monospace; text-align: right; line-height: 1.21429em; user-select: none; cursor: default; color: rgb(48, 63, 159); border-top: 1px solid transparent;"&gt;&lt;/div&gt;&lt;div class="inner_cell" style="box-sizing: border-box; min-width: 0px; -webkit-box-orient: vertical; -webkit-box-align: stretch; display: flex; flex-direction: column; align-items: stretch; -webkit-box-flex: 1; flex: 1 1 0%;"&gt;&lt;div class="text_cell_render rendered_html" tabindex="-1" style="box-sizing: border-box; outline: none; resize: none; width: inherit; border-style: none; padding: 0.5em 0.5em 0.5em 0.4em; overflow-x: auto; overflow-y: hidden;"&gt;&lt;ul style="box-sizing: border-box; margin-top: 0px; margin-bottom: 9px; list-style-position: initial; list-style-image: initial; padding-left: 2em;"&gt;&lt;li style="box-sizing: border-box;"&gt;Volume of incidents by day&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</j.2:hasDocumentation>
+            <j.2:hasLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component3</j.2:hasLocation>
+            <j.2:isConcrete rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+            >true</j.2:isConcrete>
+            <j.0:hasHardwareDependency>
+                  <j.0:HardwareDependency>
+                        <j.0:requiresMemoryGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresMemoryGB>
+                        <j.0:requiresStorageGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresStorageGB>
+                        <j.0:needs64bit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                        >false</j.0:needs64bit>
+                  </j.0:HardwareDependency>
+            </j.0:hasHardwareDependency>
+      </j.3:Component3Class>
+      <j.3:Component1Class rdf:ID="Component1">
+            <j.2:hasInput>
+                  <j.2:ParameterArgument rdf:ID="Component1_api_key">
+                        <j.2:hasArgumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >api_key</j.2:hasArgumentID>
+                        <j.2:hasArgumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-p1</j.2:hasArgumentName>
+                        <j.2:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.2:hasDimensionality>
+                        <j.2:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >AIzaSyCbcgzVUWKYNgdoM-h23ZoDvi6_tr_nYYU</j.2:hasValue>
+                  </j.2:ParameterArgument>
+            </j.2:hasInput>
+            <j.2:hasInput>
+                  <j.2:ParameterArgument rdf:ID="Component1_query">
+                        <j.2:hasArgumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >query</j.2:hasArgumentID>
+                        <j.2:hasArgumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-p2</j.2:hasArgumentName>
+                        <j.2:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.2:hasDimensionality>
+                        <j.2:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >SELECT * FROM 1KlX4PFF81wlx_TJ4zGudN_NoV_gq_GwrxuVau_M</j.2:hasValue>
+                  </j.2:ParameterArgument>
+            </j.2:hasInput>
+            <j.2:hasInput>
+                  <j.2:ParameterArgument rdf:ID="Component1_request_url">
+                        <j.2:hasArgumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >request_url</j.2:hasArgumentID>
+                        <j.2:hasArgumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-p3</j.2:hasArgumentName>
+                        <j.2:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.2:hasDimensionality>
+                        <j.2:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >https://www.googleapis.com/fusiontables/v2/query</j.2:hasValue>
+                  </j.2:ParameterArgument>
+            </j.2:hasInput>
+            <j.2:hasOutput>
+                  <j.2:DataArgument rdf:ID="Component1_data">
+                        <rdf:type rdf:resource="../data/ontology.owl#File"/>
+                        <j.2:hasArgumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >data</j.2:hasArgumentID>
+                        <j.2:hasArgumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-o1</j.2:hasArgumentName>
+                        <j.2:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.2:hasDimensionality>
+                  </j.2:DataArgument>
+            </j.2:hasOutput>
+            <j.2:hasDocumentation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >&lt;h1 id="A-IPython-Notebook-to-analyze-the-Gaza-Israel-2012-crisis" style="box-sizing: border-box; font-size: 25.998px; margin: 0.538em 0px 0px; font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; line-height: 1;"&gt;A IPython Notebook to analyze the Gaza-Israel 2012 crisis&lt;a class="anchor-link" href="http://96.126.101.215:8888/notebooks/WORKS2017/guardian_gaza-v1.ipynb#A-IPython-Notebook-to-analyze-the-Gaza-Israel-2012-crisis" style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration-line: none; padding: 0px 20px; visibility: hidden;"&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p style="box-sizing: border-box; margin: 1em 0px 0px; font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; font-size: 14px;"&gt;The Guardian is tracking and mapping live (&lt;a href="http://www.guardian.co.uk/news/datablog/interactive/2012/nov/19/gaza-israel-verified-incidents-mapped" target="_blank" style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183);"&gt;link&lt;/a&gt;) the recent incidents in Gaza and Israel. As part of their data-journalism spirit, they are sharing the data as a Google Fusion Table available for access.&lt;/p&gt;&lt;p style="box-sizing: border-box; margin: 1em 0px 0px; font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; font-size: 14px;"&gt;This notebook is an attempt to show, on the one hand, how the toolkit from the Python stack can be used for a real world data hack and, on the other, to offer deeper analysis beyond mapping of the events, both exploiting the spatial as well as the temporal dimension of the data.&lt;/p&gt;&lt;ul style="box-sizing: border-box; margin-top: 1em; margin-bottom: 9px; list-style-position: initial; list-style-image: initial; padding-left: 2em; font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; font-size: 14px;"&gt;&lt;li style="box-sizing: border-box;"&gt;The source document (&lt;code style="box-sizing: border-box; padding: 0px; border-radius: 2px; white-space: pre-wrap; border: 0px;"&gt;.ipynb&lt;/code&gt;&amp;nbsp;file) is stored on Github as a gist&amp;nbsp;&lt;a href="https://gist.github.com/4121857" target="_blank" style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183);"&gt;here&lt;/a&gt;, which means you can fork it and use it as a start for you own data-hack.&lt;/li&gt;&lt;li style="box-sizing: border-box;"&gt;A viewable version is available&amp;nbsp;&lt;a href="http://nbviewer.ipython.org/4121857/" target="_blank" style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183);"&gt;here&lt;/a&gt;, via the IPython Notebook Viewer.&lt;/li&gt;&lt;/ul&gt;&lt;h2 id="Collaborate-on-the-notebook!!!" style="box-sizing: border-box; font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; line-height: 1; margin: 1.27em 0px 0px; font-size: 21.994px;"&gt;Collaborate on the notebook!!!&lt;a class="anchor-link" href="http://96.126.101.215:8888/notebooks/WORKS2017/guardian_gaza-v1.ipynb#Collaborate-on-the-notebook!!!" style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration-line: none; padding: 0px 20px; visibility: hidden;"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p style="box-sizing: border-box; margin: 1em 0px 0px; font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; font-size: 14px;"&gt;In its initial version (Nov. 20th), the notebook only contains code to stream the data from the Google Fusion Table into a&amp;nbsp;&lt;a href="http://pandas.pydata.org/" target="_blank" style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183);"&gt;&lt;code style="box-sizing: border-box; padding: 0px; color: rgb(0, 0, 0); border-radius: 2px; white-space: pre-wrap; border: 0px;"&gt;pandas&lt;/code&gt;&lt;/a&gt;&amp;nbsp;DataFrame (which means you get the data ready to hack!). Step in and collaborate in making it a good example of how Python can help analyze real world data. Add a new view, quick visualization, summary statistic of fancy model that helps understand the data better!&lt;/p&gt;&lt;p style="box-sizing: border-box; margin: 1em 0px 0px; font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; font-size: 14px;"&gt;To contribute, just fork the gist as you would with any git repository.&lt;/p&gt;&lt;p style="box-sizing: border-box; margin: 1em 0px 0px; font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; font-size: 14px;"&gt;&lt;em style="box-sizing: border-box;"&gt;Happy hacking!&lt;/em&gt;&lt;/p&gt;&lt;p style="box-sizing: border-box; margin: 1em 0px 0px; font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; font-size: 14px;"&gt;The following cell pulls the data using the API. In the meantime, Google has changed its terms and ways to access it, so this might not work.&lt;br&gt;&lt;/p&gt;</j.2:hasDocumentation>
+            <j.2:hasLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component1</j.2:hasLocation>
+            <j.2:isConcrete rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+            >true</j.2:isConcrete>
+            <j.0:hasHardwareDependency>
+                  <j.0:HardwareDependency>
+                        <j.0:requiresMemoryGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresMemoryGB>
+                        <j.0:requiresStorageGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresStorageGB>
+                        <j.0:needs64bit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                        >false</j.0:needs64bit>
+                  </j.0:HardwareDependency>
+            </j.0:hasHardwareDependency>
+      </j.3:Component1Class>
+      <j.3:TransformDataClass rdf:ID="TransformData">
+            <j.2:isConcrete rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+            >false</j.2:isConcrete>
+            <j.0:hasHardwareDependency>
+                  <j.0:HardwareDependency>
+                        <j.0:requiresMemoryGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresMemoryGB>
+                        <j.0:requiresStorageGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresStorageGB>
+                        <j.0:needs64bit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                        >false</j.0:needs64bit>
+                  </j.0:HardwareDependency>
+            </j.0:hasHardwareDependency>
+      </j.3:TransformDataClass>
+      <j.3:Component5Class rdf:ID="Component5">
+            <j.2:hasInput>
+                  <j.2:DataArgument rdf:ID="Component5_data">
+                        <rdf:type rdf:resource="../data/ontology.owl#File"/>
+                        <j.2:hasArgumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >data</j.2:hasArgumentID>
+                        <j.2:hasArgumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-i1</j.2:hasArgumentName>
+                        <j.2:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.2:hasDimensionality>
+                  </j.2:DataArgument>
+            </j.2:hasInput>
+            <j.2:hasOutput>
+                  <j.2:DataArgument rdf:ID="Component5_figure">
+                        <rdf:type rdf:resource="../data/ontology.owl#File"/>
+                        <j.2:hasArgumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >figure</j.2:hasArgumentID>
+                        <j.2:hasArgumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-o1</j.2:hasArgumentName>
+                        <j.2:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.2:hasDimensionality>
+                  </j.2:DataArgument>
+            </j.2:hasOutput>
+            <j.2:hasLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component5</j.2:hasLocation>
+            <j.2:isConcrete rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+            >true</j.2:isConcrete>
+            <j.0:hasHardwareDependency>
+                  <j.0:HardwareDependency>
+                        <j.0:requiresMemoryGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresMemoryGB>
+                        <j.0:requiresStorageGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresStorageGB>
+                        <j.0:needs64bit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                        >false</j.0:needs64bit>
+                  </j.0:HardwareDependency>
+            </j.0:hasHardwareDependency>
+      </j.3:Component5Class>
+      <j.3:Component4Class rdf:ID="Component4">
+            <j.2:hasInput>
+                  <j.2:DataArgument rdf:ID="Component4_data">
+                        <rdf:type rdf:resource="../data/ontology.owl#File"/>
+                        <j.2:hasArgumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >data</j.2:hasArgumentID>
+                        <j.2:hasArgumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-i1</j.2:hasArgumentName>
+                        <j.2:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.2:hasDimensionality>
+                  </j.2:DataArgument>
+            </j.2:hasInput>
+            <j.2:hasOutput>
+                  <j.2:DataArgument rdf:ID="Component4_figure">
+                        <rdf:type rdf:resource="../data/ontology.owl#File"/>
+                        <j.2:hasArgumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >figure</j.2:hasArgumentID>
+                        <j.2:hasArgumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-o1</j.2:hasArgumentName>
+                        <j.2:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.2:hasDimensionality>
+                  </j.2:DataArgument>
+            </j.2:hasOutput>
+            <j.2:hasDocumentation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >&lt;div class="cell text_cell unselected rendered" tabindex="2" style="box-sizing: border-box; -webkit-box-orient: horizontal; -webkit-box-align: stretch; display: flex; flex-direction: row; align-items: stretch; border-radius: 2px; border-width: 1px; border-style: solid; border-color: transparent; width: 1110px; padding: 5px; margin: 0px; outline: none; position: relative; overflow: visible;"&gt;&lt;div class="inner_cell" style="box-sizing: border-box; min-width: 0px; -webkit-box-orient: vertical; -webkit-box-align: stretch; display: flex; flex-direction: column; align-items: stretch; -webkit-box-flex: 1; flex: 1 1 0%;"&gt;&lt;div class="text_cell_render rendered_html" tabindex="-1" style="box-sizing: border-box; outline: none; resize: none; width: inherit; border-style: none; padding: 0.5em 0.5em 0.5em 0.4em; overflow-x: auto; overflow-y: hidden;"&gt;&lt;h2 id="Very-basic-descriptive-analysis" style="box-sizing: border-box; line-height: 1; margin: 0.636em 0px 0px;"&gt;&lt;font face="Helvetica Neue, Helvetica, Arial, sans-serif"&gt;&lt;span style="font-size: 21.994px;"&gt;Location of events coloured by day&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;/h2&gt;&lt;h2 id="Very-basic-descriptive-analysis" style="color: inherit; font-family: inherit; font-size: 21.994px; box-sizing: border-box; line-height: 1; margin: 0.636em 0px 0px;"&gt;&lt;br&gt;&lt;/h2&gt;&lt;h2 id="Very-basic-descriptive-analysis" style="color: inherit; font-family: inherit; font-size: 21.994px; box-sizing: border-box; line-height: 1; margin: 0.636em 0px 0px;"&gt;&lt;br&gt;&lt;/h2&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</j.2:hasDocumentation>
+            <j.2:hasLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component4</j.2:hasLocation>
+            <j.2:isConcrete rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+            >true</j.2:isConcrete>
+            <j.0:hasHardwareDependency>
+                  <j.0:HardwareDependency>
+                        <j.0:requiresMemoryGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresMemoryGB>
+                        <j.0:requiresStorageGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresStorageGB>
+                        <j.0:needs64bit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                        >false</j.0:needs64bit>
+                  </j.0:HardwareDependency>
+            </j.0:hasHardwareDependency>
+      </j.3:Component4Class>
+      <j.3:Component2Class rdf:ID="Component2">
+            <j.2:hasInput>
+                  <j.2:DataArgument rdf:ID="Component2_data">
+                        <rdf:type rdf:resource="../data/ontology.owl#File"/>
+                        <j.2:hasArgumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >data</j.2:hasArgumentID>
+                        <j.2:hasArgumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-i1</j.2:hasArgumentName>
+                        <j.2:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.2:hasDimensionality>
+                  </j.2:DataArgument>
+            </j.2:hasInput>
+            <j.2:hasOutput>
+                  <j.2:DataArgument rdf:ID="Component2_dataModified">
+                        <rdf:type rdf:resource="../data/ontology.owl#File"/>
+                        <j.2:hasArgumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >dataModified</j.2:hasArgumentID>
+                        <j.2:hasArgumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-o1</j.2:hasArgumentName>
+                        <j.2:hasDimensionality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</j.2:hasDimensionality>
+                  </j.2:DataArgument>
+            </j.2:hasOutput>
+            <j.2:hasDocumentation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >&lt;span style="font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; font-size: 14px;"&gt;If you cannot pull the data using the API, an easy alternative is to export the table to a&amp;nbsp;&lt;/span&gt;&lt;code style="box-sizing: border-box; font-size: 14px; padding: 0px; border-radius: 2px; white-space: pre-wrap; border: 0px;"&gt;csv&lt;/code&gt;&lt;span style="font-family: &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; font-size: 14px;"&gt;&amp;nbsp;file manually and read it separately:&lt;/span&gt;&lt;br&gt;</j.2:hasDocumentation>
+            <j.2:hasLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component2</j.2:hasLocation>
+            <j.2:isConcrete rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+            >true</j.2:isConcrete>
+            <j.0:hasHardwareDependency>
+                  <j.0:HardwareDependency>
+                        <j.0:requiresMemoryGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresMemoryGB>
+                        <j.0:requiresStorageGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresStorageGB>
+                        <j.0:needs64bit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                        >false</j.0:needs64bit>
+                  </j.0:HardwareDependency>
+            </j.0:hasHardwareDependency>
+      </j.3:Component2Class>
+      <j.3:VisualizationClass rdf:ID="Visualization">
+            <j.2:isConcrete rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+            >false</j.2:isConcrete>
+            <j.0:hasHardwareDependency>
+                  <j.0:HardwareDependency>
+                        <j.0:requiresMemoryGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresMemoryGB>
+                        <j.0:requiresStorageGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresStorageGB>
+                        <j.0:needs64bit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                        >false</j.0:needs64bit>
+                  </j.0:HardwareDependency>
+            </j.0:hasHardwareDependency>
+      </j.3:VisualizationClass>
+      <j.3:FetchAndSaveFileClass rdf:ID="FetchAndSaveFile">
+            <j.2:isConcrete rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+            >false</j.2:isConcrete>
+      </j.3:FetchAndSaveFileClass>
+</rdf:RDF>
+

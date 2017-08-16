@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://www.wings-workflows.org/ontology/resource.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:j.1="http://www.wings-workflows.org/ontology/component.owl#"
+    xmlns:j.2="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/components/library.owl#"
+      xml:base="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/components/abstract.owl">
+      <owl:Class rdf:about="library.owl#VisualizationClass">
+            <rdfs:subClassOf rdf:resource="http://www.wings-workflows.org/ontology/component.owl#Component"/>
+      </owl:Class>
+      <owl:Class rdf:about="library.owl#TransformDataClass">
+            <rdfs:subClassOf rdf:resource="http://www.wings-workflows.org/ontology/component.owl#Component"/>
+      </owl:Class>
+      <owl:Class rdf:about="library.owl#FetchAndSaveFileClass">
+            <rdfs:subClassOf rdf:resource="http://www.wings-workflows.org/ontology/component.owl#Component"/>
+      </owl:Class>
+      <j.2:FetchAndSaveFileClass rdf:about="library.owl#FetchAndSaveFile">
+            <j.1:isConcrete rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+            >false</j.1:isConcrete>
+      </j.2:FetchAndSaveFileClass>
+      <j.2:TransformDataClass rdf:about="library.owl#TransformData">
+            <j.1:isConcrete rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+            >false</j.1:isConcrete>
+            <j.0:hasHardwareDependency>
+                  <j.0:HardwareDependency>
+                        <j.0:requiresMemoryGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresMemoryGB>
+                        <j.0:requiresStorageGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresStorageGB>
+                        <j.0:needs64bit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                        >false</j.0:needs64bit>
+                  </j.0:HardwareDependency>
+            </j.0:hasHardwareDependency>
+      </j.2:TransformDataClass>
+      <j.2:VisualizationClass rdf:about="library.owl#Visualization">
+            <j.1:isConcrete rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+            >false</j.1:isConcrete>
+            <j.0:hasHardwareDependency>
+                  <j.0:HardwareDependency>
+                        <j.0:requiresMemoryGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresMemoryGB>
+                        <j.0:requiresStorageGB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</j.0:requiresStorageGB>
+                        <j.0:needs64bit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                        >false</j.0:needs64bit>
+                  </j.0:HardwareDependency>
+            </j.0:hasHardwareDependency>
+      </j.2:VisualizationClass>
+</rdf:RDF>
+

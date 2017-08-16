@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://www.wings-workflows.org/ontology/execution.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+      xml:base="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76.owl">
+      <j.0:Execution rdf:ID="GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76">
+            <j.0:hasPlan rdf:resource="GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf.owl#GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf"/>
+            <j.0:hasStep>
+                  <j.0:ExecutionStep rdf:about="GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#Component5Node">
+                        <j.0:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+                        >2017-08-13T03:42:01.003Z</j.0:hasStartTime>
+                        <j.0:hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+                        >2017-08-13T03:42:20.392Z</j.0:hasEndTime>
+                        <j.0:hasExecutionStatus rdf:datatype=
+                        "http://www.w3.org/2001/XMLSchema#string"
+                        >SUCCESS</j.0:hasExecutionStatus>
+                        <j.0:hasLog rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >/home/lucas/.wings/storage/users/adminUser/NiW/code/library/Component5/run -i1 /home/lucas/.wings/storage/users/adminUser/NiW/data/dataModified-2ltle6p9awg7ajkd98sz2pmts -o1 /home/lucas/.wings/storage/users/adminUser/NiW/data/figure1-9w4ag02kw7bdhvnefw492gak2
+
+</j.0:hasLog>     </j.0:ExecutionStep>
+            </j.0:hasStep>
+            <j.0:hasStep>
+                  <j.0:ExecutionStep rdf:about="GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#Component4Node">
+                        <j.0:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+                        >2017-08-13T03:42:01.175Z</j.0:hasStartTime>
+                        <j.0:hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+                        >2017-08-13T03:42:03.506Z</j.0:hasEndTime>
+                        <j.0:hasExecutionStatus rdf:datatype=
+                        "http://www.w3.org/2001/XMLSchema#string"
+                        >SUCCESS</j.0:hasExecutionStatus>
+                        <j.0:hasLog rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >/home/lucas/.wings/storage/users/adminUser/NiW/code/library/Component4/run -i1 /home/lucas/.wings/storage/users/adminUser/NiW/data/dataModified-2ltle6p9awg7ajkd98sz2pmts -o1 /home/lucas/.wings/storage/users/adminUser/NiW/data/figure2-cfevnbu6afrps38yaewygjczy
+/home/lucas/.wings/storage/users/adminUser/NiW/code/library/Component4/Component4.py:23: MatplotlibDeprecationWarning: The set_axis_bgcolor function was deprecated in version 2.0. Use set_facecolor instead.
+  ax.set_axis_bgcolor("0.2")
+
+</j.0:hasLog>     </j.0:ExecutionStep>
+            </j.0:hasStep>
+            <j.0:hasStep>
+                  <j.0:ExecutionStep rdf:about="GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#Component3Node">
+                        <j.0:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+                        >2017-08-13T03:42:01.453Z</j.0:hasStartTime>
+                        <j.0:hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+                        >2017-08-13T03:42:03.481Z</j.0:hasEndTime>
+                        <j.0:hasExecutionStatus rdf:datatype=
+                        "http://www.w3.org/2001/XMLSchema#string"
+                        >SUCCESS</j.0:hasExecutionStatus>
+                        <j.0:hasLog rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >/home/lucas/.wings/storage/users/adminUser/NiW/code/library/Component3/run -i1 /home/lucas/.wings/storage/users/adminUser/NiW/data/dataModified-2ltle6p9awg7ajkd98sz2pmts -o1 /home/lucas/.wings/storage/users/adminUser/NiW/data/figure-2kx5zsa20e68valm3o6lzwb86
+
+</j.0:hasLog>     </j.0:ExecutionStep>
+            </j.0:hasStep>
+            <j.0:hasStep>
+                  <j.0:ExecutionStep rdf:about="GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#Component2Node">
+                        <j.0:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+                        >2017-08-13T03:41:59.401Z</j.0:hasStartTime>
+                        <j.0:hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+                        >2017-08-13T03:42:00.564Z</j.0:hasEndTime>
+                        <j.0:hasExecutionStatus rdf:datatype=
+                        "http://www.w3.org/2001/XMLSchema#string"
+                        >SUCCESS</j.0:hasExecutionStatus>
+                        <j.0:hasLog rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >/home/lucas/.wings/storage/users/adminUser/NiW/code/library/Component2/run -i1 /home/lucas/.wings/storage/users/adminUser/NiW/data/data-jzen4pawwen945770fclfau -o1 /home/lucas/.wings/storage/users/adminUser/NiW/data/dataModified-2ltle6p9awg7ajkd98sz2pmts
+
+</j.0:hasLog>     </j.0:ExecutionStep>
+            </j.0:hasStep>
+            <j.0:hasStep>
+                  <j.0:ExecutionStep rdf:about="GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#Component1Node">
+                        <j.0:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+                        >2017-08-13T03:41:48.16Z</j.0:hasStartTime>
+                        <j.0:hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+                        >2017-08-13T03:41:59.141Z</j.0:hasEndTime>
+                        <j.0:hasExecutionStatus rdf:datatype=
+                        "http://www.w3.org/2001/XMLSchema#string"
+                        >SUCCESS</j.0:hasExecutionStatus>
+                        <j.0:hasLog rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >/home/lucas/.wings/storage/users/adminUser/NiW/code/library/Component1/run -p1 AIzaSyCbcgzVUWKYNgdoM-h23ZoDvi6_tr_nYYU -o1 /home/lucas/.wings/storage/users/adminUser/NiW/data/data-jzen4pawwen945770fclfau
+
+Last pull of data from the Google FusionTable:  2017-08-12 20:41:58.964884
+
+</j.0:hasLog>     </j.0:ExecutionStep>
+            </j.0:hasStep>
+            <j.0:hasTemplate rdf:resource="../workflows/GuardianGaza-d751713988987e9331980363e24189ce.owl#GuardianGaza-d751713988987e9331980363e24189ce"/>
+            <j.0:hasExpandedTemplate rdf:resource="GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8"/>
+            <j.0:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2017-08-13T03:41:47.635Z</j.0:hasStartTime>
+            <j.0:hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2017-08-13T03:42:20.795Z</j.0:hasEndTime>
+            <j.0:hasExecutionStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >SUCCESS</j.0:hasExecutionStatus>
+            <j.0:hasLog rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Finished
+</j.0:hasLog>
+            <j.0:hasSeededTemplate rdf:resource="../workflows/GuardianGaza-8a6448c8-6fc5-48a3-a74c-58ca3289c61d.owl#GuardianGaza-8a6448c8-6fc5-48a3-a74c-58ca3289c61d"/>
+      </j.0:Execution>
+</rdf:RDF>
+

@@ -1,0 +1,100 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://www.wings-workflows.org/ontology/workflow.owl#"
+    xmlns:j.1="http://purl.org/net/wf-invocation#"
+    xmlns:j.2="http://purl.org/net/p-plan#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+      <j.1:Step rdf:about="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#Component4Node">
+            <j.0:canRunOn rdf:resource="http://www.wings-workflows.org/ontology/resource.owl#Localhost"/>
+            <j.2:hasOutputVar>
+                  <j.1:Variable rdf:about="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#figure2">
+                        <j.1:hasDataBinding rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/data/figure2-cfevnbu6afrps38yaewygjczy</j.1:hasDataBinding>
+                        <j.2:isVariableOfPlan>
+                              <j.2:Plan rdf:about="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf.owl#GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf"/>
+                        </j.2:isVariableOfPlan>
+                  </j.1:Variable>
+            </j.2:hasOutputVar>
+            <j.2:hasInputVar>
+                  <j.1:Variable rdf:about="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#dataModified">
+                        <j.1:hasDataBinding rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/data/dataModified-2ltle6p9awg7ajkd98sz2pmts</j.1:hasDataBinding>
+                        <j.2:isVariableOfPlan rdf:resource="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf.owl#GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf"/>
+                  </j.1:Variable>
+            </j.2:hasInputVar>
+            <j.2:hasInvocationLine rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            ></j.2:hasInvocationLine>
+            <j.0:hasCustomData rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >CodeDirectory=http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component4</j.0:hasCustomData>
+            <j.1:hasCodeBinding rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component4/run</j.1:hasCodeBinding>
+            <j.2:isStepOfPlan rdf:resource="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf.owl#GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf"/>
+      </j.1:Step>
+      <j.1:Step rdf:about="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#Component2Node">
+            <j.0:canRunOn rdf:resource="http://www.wings-workflows.org/ontology/resource.owl#Localhost"/>
+            <j.2:hasOutputVar rdf:resource="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#dataModified"/>
+            <j.2:hasInputVar>
+                  <j.1:Variable rdf:about="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#data">
+                        <j.1:hasDataBinding rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/data/data-jzen4pawwen945770fclfau</j.1:hasDataBinding>
+                        <j.2:isVariableOfPlan rdf:resource="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf.owl#GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf"/>
+                  </j.1:Variable>
+            </j.2:hasInputVar>
+            <j.2:hasInvocationLine rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            ></j.2:hasInvocationLine>
+            <j.0:hasCustomData rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >CodeDirectory=http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component2</j.0:hasCustomData>
+            <j.1:hasCodeBinding rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component2/run</j.1:hasCodeBinding>
+            <j.2:isStepOfPlan rdf:resource="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf.owl#GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf"/>
+      </j.1:Step>
+      <j.1:Step rdf:about="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#Component1Node">
+            <j.0:canRunOn rdf:resource="http://www.wings-workflows.org/ontology/resource.owl#Localhost"/>
+            <j.2:hasOutputVar rdf:resource="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#data"/>
+            <j.2:hasInvocationLine rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            ></j.2:hasInvocationLine>
+            <j.0:hasCustomData rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >CodeDirectory=http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component1</j.0:hasCustomData>
+            <j.1:hasCodeBinding rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component1/run</j.1:hasCodeBinding>
+            <j.2:isStepOfPlan rdf:resource="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf.owl#GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf"/>
+      </j.1:Step>
+      <j.1:Step rdf:about="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#Component5Node">
+            <j.0:canRunOn rdf:resource="http://www.wings-workflows.org/ontology/resource.owl#Localhost"/>
+            <j.2:hasOutputVar>
+                  <j.1:Variable rdf:about="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#figure1">
+                        <j.1:hasDataBinding rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/data/figure1-9w4ag02kw7bdhvnefw492gak2</j.1:hasDataBinding>
+                        <j.2:isVariableOfPlan rdf:resource="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf.owl#GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf"/>
+                  </j.1:Variable>
+            </j.2:hasOutputVar>
+            <j.2:hasInputVar rdf:resource="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#dataModified"/>
+            <j.2:hasInvocationLine rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            ></j.2:hasInvocationLine>
+            <j.0:hasCustomData rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >CodeDirectory=http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component5</j.0:hasCustomData>
+            <j.1:hasCodeBinding rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component5/run</j.1:hasCodeBinding>
+            <j.2:isStepOfPlan rdf:resource="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf.owl#GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf"/>
+      </j.1:Step>
+      <j.1:Step rdf:about="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#Component3Node">
+            <j.0:canRunOn rdf:resource="http://www.wings-workflows.org/ontology/resource.owl#Localhost"/>
+            <j.2:hasOutputVar>
+                  <j.1:Variable rdf:about="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#figure">
+                        <j.1:hasDataBinding rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/data/figure-2kx5zsa20e68valm3o6lzwb86</j.1:hasDataBinding>
+                        <j.2:isVariableOfPlan rdf:resource="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf.owl#GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf"/>
+                  </j.1:Variable>
+            </j.2:hasOutputVar>
+            <j.2:hasInputVar rdf:resource="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-0e5c53c6-0f37-482f-973a-d785136caee8.owl#dataModified"/>
+            <j.2:hasInvocationLine rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            ></j.2:hasInvocationLine>
+            <j.0:hasCustomData rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >CodeDirectory=http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component3</j.0:hasCustomData>
+            <j.1:hasCodeBinding rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/code/Component3/run</j.1:hasCodeBinding>
+            <j.2:isStepOfPlan rdf:resource="http://localhost/tirth/uploads/GuardianGaza-625-59b93de5-92fb-4234-bdaf-08a5587eba76/ont/executions/GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf.owl#GuardianGaza-625-ea4e0539-a0d4-41db-9a51-1d1df93feabf"/>
+      </j.1:Step>
+</rdf:RDF>
