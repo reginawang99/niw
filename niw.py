@@ -52,10 +52,10 @@ class NiW(object):
         if not os.path.exists(filepath):
             raise Exception("File does not exist: "+filepath)
         
-        Util().createFolder(self.dirPath)
         self.workflowName = Util().getWorkflowName(filepath)
-        self.dirPath = self.dirPath + "/" + self.workflowName
-
+        self.dirPath = os.path.join(self.dirPath, self.workflowName)
+        Util().createFolder(self.dirPath)
+        
         # inform notebook file
         with open(filepath,"r") as r:
             # nbconvert format version = 3
@@ -908,7 +908,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         file_path = sys.argv[1]
     else:
-        file_path = "notebook/Disease+Analysis.ipynb"
+        file_path = "example/Disease+Analysis.ipynb"
         
     mfp = NiW()
     mfp.setNotebook(file_path)
