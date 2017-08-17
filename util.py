@@ -4,6 +4,9 @@ import os
 class Util(object):
     
     def createFolder(self, folder):
+        '''
+        Create folder or remove contents of the existing folder
+        '''
         if not os.path.exists(folder):
             os.mkdir(folder)   
         else:                        
@@ -16,9 +19,11 @@ class Util(object):
                 except Exception as e:
                     print(e)
                     
-    # ## Utility Functions    
-    # find first opening quote
     def findFirstQuote(self,st):
+        '''
+        Utility Functions    
+        - find first opening quote
+        '''
         if not "'" in st and not '"' in st:
             return [-1]
         elif "'" in st and '"' in st:
@@ -29,10 +34,12 @@ class Util(object):
             return [st.find("'"),"'"]
         elif '"' in st:
             return [st.find('"'),'"']
-    
-    # used after findFirstQuote
-    # find closing quote
+        
     def findRealQuote(self,q,st):
+        '''
+        - used after findFirstQuote
+        - find closing quote
+        '''
         n = 0
         # why "\\" ?
         while not st[:st.find(q)+1].count("\\"+q) == 0:
@@ -45,6 +52,9 @@ class Util(object):
         return st.find(q)+n
     
     def isOpeningFile(self,st):
+        '''
+        Check if string contains a open statement.
+        '''
         if st.replace(" ","").find("open(") != -1:
             t = st[:st.index("(")]
             # the last index
@@ -56,15 +66,19 @@ class Util(object):
                 return True   
         return False 
     
-    # Count the number of spaces in a string. 
     def spaces(self,s):
+        '''
+        Count the number of spaces in a string.
+        '''
         k = 0
         while k < len(s) and s[k] == " ":
             k=k+1
         return k 
-    
-    # get the file name
+        
     def getFileName(self,st):
+        '''
+        Get the file name in open() statement.
+        '''
         t = st[st.index("(")+1:st.rfind(")")]
         ind = st.index("(")+1
         t = t.replace(" ","")
@@ -79,6 +93,9 @@ class Util(object):
             return[t,ind,st[:st.index("(")]+st[st.index("("):st.rfind(")")].replace(" ","")+st[st.rfind(")"):],True,st[:st.find("=")].replace(" ","")]
     
     def getMode(self,st,fileName):
+        '''
+        TODO: description
+        '''
         t = st[st.index("(")+1:st.rfind(")")]
         t = t.replace(" ",""); t = t.replace(fileName,"")
         a = t.split(",")
@@ -89,6 +106,9 @@ class Util(object):
         return 'r' 
     
     def buffering(self,st):
+        '''
+        TODO: description
+        '''
         t = st[st.index("(")+1:st.rfind(")")]
         a = t.split(",")
         i = 0
@@ -98,23 +118,29 @@ class Util(object):
             i+=1
         return -1
     
-    # add zeros up to 5 digits
     def addZeros(self,num):
+        '''
+        Add zeros "0" up to 5 digits.
+        '''
         st = str(num)
         while len(st) < 5:
             st = "0" + st
         return st  
-    
-    # check if string is a call to print function
-    # why i as an argument?
+        
     def isPrinting(self,st,i):
+        '''
+        Check if string is a call to print function
+        TODO: why i as an argument?
+        '''
         st = st.replace('"',"'")
         if st.find("print(") > -1 and (st.find("'") == -1 or st.find("'") > st.find("print(")):
             return True 
         return False 
-        
-    # what kind of check?
+            
     def checkForVariable(self,i,j,k,s):
+        '''
+        TODO: what kind of check?
+        '''
         if s[k].isalpha():
             for x in range(k,len(s)):
                 if not s[x].isalpha() and not self.isNumber(s[x]):
@@ -131,8 +157,11 @@ class Util(object):
             return [True,s[k:].replace(" ",""),[j,k],x+1]
         return [False,False,0,k+1]
     
-    # check if character is a number
+    
     def isNumber(self,char):
+        '''
+        Check if character is a number
+        '''
         try:
             int(char)
             return True
