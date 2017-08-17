@@ -1,12 +1,8 @@
 # coding: utf-8
-
-# # Tranforming Jupyter Notebooks into Wings Workflows
-# 
-# ## Initial Imports
-# Import everything necessary to access notebooks information.
-
-# In[ ]:
-
+'''
+NiW: Notebooks into Workflows
+Converting Jupyter Notebooks into Wings Workflows
+'''
 import nbformat as nbf
 from  nbformat.v4.nbbase import (new_code_cell, new_markdown_cell)
 import os
@@ -15,13 +11,12 @@ from util import Util
 import sys
 
 class NiW(object):
- 
-    # ### Data
-    # 
-    # <ul>
-    # <li><b>arr</b> is a list that includes all cells, markdown and code and their info.</li>
-    # <li><b>code</b> is a list that only includes code cells info and their relative position in the notebook.</li>
-    # </ul>
+    ''' 
+    Data
+     
+    arr: is a list that includes all cells, markdown and code and their info.
+    code: is a list that only includes code cells info and their relative position in the notebook.
+    '''
     def __init__(self):
  
         self.arr = []
@@ -43,14 +38,12 @@ class NiW(object):
         self.runFiles = None
         self.dirPath = "workflow"
         self.workflowName = None
-        
-    # ## Grab notebook cells information
-    # <ul>
-    # <li>Get all of the cells (code and markdown) in the specified notebook.</li>
-    # <li>Grab cells, put back code to cells to notebook, run code, and save result to a notebook.</li>
-    # <li>Check if the code cells' language is in Python.</li>
-    # </ul>
+    
     def setWorkflowName(self, filepath):
+        '''
+        - create the workflow name based on the notebook filename
+        - create the folder for the workflow files
+        '''        
         import re
         filename = filepath.split("/")[-1]
         filename = filename.replace(u".ipynb","")
@@ -61,6 +54,15 @@ class NiW(object):
         Util().createFolder(self.dirPath)
     
     def setNotebook(self, filepath):
+        '''                
+        - set the notebook file
+        
+        Grab notebook cells information         
+        - open notebook with the nbconvert API
+            - Get all of the cells (code and markdown) in the specified notebook.
+            - Grab cells, put back code to cells to notebook, run code, and save result to a notebook.
+            - Check if the code cells' language is in Python.
+        '''        
         if not os.path.exists(filepath):
             raise Exception("File does not exist: "+filepath)
         
@@ -84,11 +86,11 @@ class NiW(object):
                         # get relative position number of the cell
                         self.code.append([cell.input.split("\n"),len(self.arr)]) 
 
-    # <ul>
-    # <li>Deal w strings by putting all in an array.</li>
-    # <li>Deal w comments by putting in an array and adding it back later.</li>
-    # </ul>
     def preProcessing(self):
+        '''
+        - Deal w strings by putting all in an array.
+        - Deal w comments by putting in an array and adding it back later.
+        '''        
         strings = []
         files = []
         code = self.code
@@ -142,10 +144,11 @@ class NiW(object):
         self.strings = strings
         return files
 
-    # Deal w comments by putting in an array and adding it back later.
-    
-    # If a "\" is at the end of a line, then combine with the next line.
     def comments(self):
+        '''
+        - Deal w comments by putting in an array and adding it back later.
+        - If a "\" is at the end of a line, then combine with the next line.
+        '''        
         code = self.code
         for i in range (0,len(code)):
             j = 0
@@ -160,15 +163,16 @@ class NiW(object):
                 else:
                     j+=1
 
-    # Make a new line where there is a semicolon, except if it is in a string.
-    # <br><b>Justification:</b> Sometimes Jupyter API inserts ";" between assigment statements, instead of "\n".
-    # <br /><b>Example:</b>
-    # <br>temp = "";i = 3
-    # <br /><b>becomes:</b>
-    # <br />temp = ""
-    # <br />i = 3
-
     def newLines(self):
+        '''
+        Make a new line where there is a semicolon, except if it is in a string.
+        Justification: Sometimes Jupyter API inserts ";" between assigment statements, instead of "\n".
+        Example:
+            temp = "";i = 3
+        becomes:
+            temp = ""
+            i = 3
+        '''
         code = self.code
         for i in range(0,len(code)):
             j = 0 
@@ -181,14 +185,12 @@ class NiW(object):
                         code[i][0].insert(j+1,[s+fake[len(fake)-g][Util().spaces(fake[len(fake)-g]):],''])
                 j = j+1
 
-
-    # <ul>
-    # <li>remove unnecessary spaces and new lines in code.</li>
-    # <li>all single quotes ' are changed to double quotes ".</li>
-    # <li>run under assumption that there are no single quotes ' or double quotes " in strings.</li>
-    # </ul>
-
     def cleaningUp(self):
+        '''
+        - remove unnecessary spaces and new lines in code.
+        - all single quotes ' are changed to double quotes ".
+        - run under assumption that there are no single quotes ' or double quotes " in strings.
+        '''
         code = self.code
         for i in range(0,len(code)):
             j = 0
@@ -201,17 +203,15 @@ class NiW(object):
             for j in range(0,len(code[i][0])):
                 k = Util().spaces(code[i][0][j][0])
                 code[i][0][j][0]= code[i][0][j][0][:k] + " ".join(code[i][0][j][0][k:].split())
-
-
-    # ## Imports
-    # 
-    # <ul>
-    # <li>get all of the imported libraries, puts them together, and sets up heading for code of workflow component.</li>
-    # <li>add "matplotlib.use(\"Agg\")" if 'import matplotlib' is an imported library so that the output figure can be saved.</li>
-    # <li>save the imported library nicknames or names so that they will not be confused as variables.</li>
-    # </ul>
+    
 
     def imports(self):
+        '''
+        Imports
+        - get all of the imported libraries, puts them together, and sets up heading for code of workflow component.
+        - add "matplotlib.use(\"Agg\")" if 'import matplotlib' is an imported library so that the output figure can be saved.
+        - save the imported library nicknames or names so that they will not be confused as variables.
+        '''
         code = self.code    
         imports= "import sys\n"
         b = ['sys']
@@ -237,16 +237,13 @@ class NiW(object):
         self.b = b
         return imports
 
-
-    # ## Magic Commands
-    # 
-    # <ul>
-    # <li>Clean up cell magic</li>
-    # <li>No cell magic allowed (other than for matplotlib allowed) or a value error will be thrown</li>
-    # <li>All cell magic deleted</li>
-    # </ul>
-
     def magicCommands(self):
+        '''
+        Magic Commands
+        - Clean up cell magic
+        - No cell magic allowed (other than for matplotlib allowed) or a value error will be thrown
+        - All cell magic deleted
+        '''
         code = self.code    
         for i in range(0,len(code)):
             j=0
@@ -258,16 +255,15 @@ class NiW(object):
                         del code[i][0][j]
                 else:
                     j = j+1
-
-
-    # ## Methods
-    # <ul>
-    # <li>Grab all defined methods and puts in array <b>methods</b>.</li>
-    # <li>Save name and code.</li>
-    # <li>Remove from code cell.</li>
-    # <li>Run under assumption that no methods have been overriden.</li>
-    # </ul>
+ 
     def organizeMethods(self):
+        '''
+        Methods
+        - Grab all defined methods and puts in array <b>methods</b>.
+        - Save name and code.
+        - Remove from code cell.
+        - Run under assumption that no methods have been overriden.
+        '''
         code = self.code
         methods = []
         for i in range(0,len(code)):
@@ -290,9 +286,11 @@ class NiW(object):
                 else:
                     j = j+1
         self.methods = methods
-
-    # Relocate code in code cell if it uses a file opened from another cell. (Merge??)
+    
     def checkOpenFiles(self):
+        '''
+        Relocate code in code cell if it uses a file opened from another cell. (Merge??)
+        '''
         code = self.code
         for i in range(0,len(code)):
             for j in range (0,len(code[i][0])):
@@ -318,14 +316,13 @@ class NiW(object):
                                 for b in range(0,len(code[a][0])):
                                     code[i][0].append(code[i+1][0][0])
                                     del code[i+1][0][0]
-
-
-    # ## Cleaning up Code cells and Merge Cells
-    # <ul>
-    # <li>Remove code cells with no substantial code & merge cells if start indented.</li>
-    # <li>If there is no running code in the notebook, a value error will be raised.</li>
-    # </ul>
+    
     def cleanAndMerge(self):
+        '''
+        Cleaning up Code cells and Merge Cells
+        - Remove code cells with no substantial code & merge cells if start indented.
+        - If there is no running code in the notebook, a value error will be raised.
+        '''
         code = self.code
         arr = self.arr
         dif = 0
@@ -345,20 +342,17 @@ class NiW(object):
                 code[i][1]= code[i][1] - dif
                 i= i+1
         if len(code) == 0:
-            raise ValueError("There is no running code in this notebook!")
-
-
-    # ## Input and Outputs
-
-    # <ul>
-    # <li>Get list of input data or output data needed for each component.</li>
-    # <li>If an input data is opened across cells, the cells are merged.</li>
-    # <li>Cells will be merged until the file is closed, the variable name for the input data is no longer mentioned or until the end of the notebook.</li>
-    # <li>Put data into form, e.g., "I.1.data.txt".</li>
-    # <li>Put "sys.argv[ ]" in code.</li>
-    # </ul>
+            raise ValueError("There is no running code in this notebook!")    
 
     def inputsAndOuputs(self, files):
+        '''
+        Input and Outputs
+        - Get list of input data or output data needed for each component.
+        - If an input data is opened across cells, the cells are merged.
+        - Cells will be merged until the file is closed, the variable name for the input data is no longer mentioned or until the end of the notebook.
+        - Put data into form, e.g., "I.1.data.txt".
+        - Put "sys.argv[ ]" in code.
+        '''
         code = self.code    
         input = []
         output = []
@@ -366,10 +360,11 @@ class NiW(object):
             input.append([])
             output.append([])
             for j in range (0,len(code[i][0])):
-                if Util().isOpeningFile(code[i][0][j][0])and "sys.agrv[]" in code[i][0][j][0]:
+                if Util().isOpeningFile(code[i][0][j][0]) and "sys.agrv[]" in code[i][0][j][0]:
                     name = Util().getFileName(code[i][0][j][0])
                     indexOfName = int(name[0][10:])
                     mode = files[int(Util().getMode(code[i][0][j][0],name[0])[10:])-1]
+                    print code[i][0][j][0], name[0], mode
                     if 'r' in mode or '+' in mode:
                         input[i].append(["D"+Util().addZeros(len(input[i])+1)+files[indexOfName-1],files[indexOfName-1]])
                         code[i][0][j][0] = code[i][0][j][0][:code[i][0][j][0].find("(")+1]+"sys.argv[" + str(len(input[i])) + "]"+                 ",\""+mode+"\""+","+str(Util().buffering(code[i][0][j][0]))+code[i][0][j][0][code[i][0][j][0].rfind(")"):]
@@ -383,13 +378,13 @@ class NiW(object):
                         code[i][0].append(["        w29384ia9ehv.write(r1928gbdh.read())",""])
         self.input = input
         self.output = output
-
-    # ## Documentation /  Markdown cells
-    # <ul>
-    # <li>Make the documentation of first code cell (all markdown combined).</li>
-    # <li>Format: "Cell ("+cell number+"): "+source+"\n".</li>
-    # </ul>
+    
     def documentation(self):
+        '''
+        Documentation /  Markdown cells
+        - Make the documentation of first code cell (all markdown combined).
+        - Format: "Cell ("+cell number+"): "+source+"\n".
+        '''
         arr = self.arr
         doc = ""
         for i in range(0,len(arr)):
@@ -402,10 +397,10 @@ class NiW(object):
     
         return doc
 
-    # ## Variables
-    
-    # 
     def findAllVariables(self,num):
+        ''' 
+        TODO: description
+        '''
         code = self.code
         input = self.input
         output = self.output
@@ -453,13 +448,13 @@ class NiW(object):
                 else:
                     index +=1
         return array  
-    
-    # <ul>
-    # <li>Find all variables used in each cell (cannot have same name as an imported libarary or the excluded below).</li>
-    # <li>Split into passed on variables and newly created variables.</li>
-    # <li>Check if a variable that a for loop is using.</li>
-    # </ul>:
+        
     def variables(self):
+        '''
+        - Find all variables used in each cell (cannot have same name as an imported libarary or the excluded below).
+        - Split into passed on variables and newly created variables.
+        - Check if a variable that a for loop is using.
+        '''
         code = self.code    
         banned = self.banned
         newVariables = [self.findAllVariables(0)]
@@ -503,11 +498,12 @@ class NiW(object):
         self.banned = banned
         self.newVariables = newVariables
         self.passedOnVariables = passedOnVariables
-    # <ul>
-    # <li>Split newly created variables into created internally or to be set by the user.</li>
-    # <li>The set methods are methods that can be used in the process of creating the variable and still be set by the user.</li>
-    # </ul>
+            
     def splitVariables(self):
+        '''
+        - Split newly created variables into created internally or to be set by the user.
+        - The set methods are methods that can be used in the process of creating the variable and still be set by the user.
+        '''
         code = self.code
         banned = self.banned
         newVariables = self.newVariables
@@ -577,8 +573,10 @@ class NiW(object):
                     var = var+1
         self.allVar = allVar
 
-    # Divide newly created variables (to be passed in by the user) to parameter or standard input.
     def divideVariablesInParametersAndStdIn(self):
+        '''
+        Divide newly created variables (to be passed in by the user) to parameter or standard input.
+        '''
         parameters = []
         stdIn = []
         code = self.code
@@ -616,10 +614,12 @@ class NiW(object):
                 
         self.stdIn = stdIn
         self.parameters = parameters
-        
-    # Add parameters, standard inputs and intermediates to the array <em>inputs</em> 
-    # and change the line of code with the variable accordingly.
+            
     def insert(self):
+        ''' 
+        Add parameters, standard inputs and intermediates to the array <em>inputs</em> 
+        and change the line of code with the variable accordingly.
+        '''
         code = self.code
         stdIn = self.stdIn
         input = self.input
@@ -679,11 +679,12 @@ class NiW(object):
                 for g in range(0,len(output[i])):
                         output[i][g][1][0]+=1
         self.index = index
-
-
-    # ## Methods
-    # Insert method in code cell if used in that particular code cell.  
+    
     def insertMethods(self):
+        '''
+        Methods
+        - Insert method in code cell if used in that particular code cell.
+        '''
         code = self.code
         methods = self.methods
         output = self.output
@@ -701,14 +702,13 @@ class NiW(object):
                         l = len(code[i][0])+1
                     else:
                         l= l+1
-
-
-    # ## Figures
-    # <ul>
-    # <li>If a call to save a figure, save it. </li>
-    # <li>If a figure and no save fig call in cell, save the last one.</li>
-    # </ul>
+    
     def figures(self):
+        '''
+        Figures
+        - If a call to save a figure, save it. 
+        - If a figure and no save fig call in cell, save the last one.
+        '''
         code = self.code
         output = self.output
         strings = self.strings
@@ -740,9 +740,11 @@ class NiW(object):
                 output[i].append(["O"+Util().addZeros(len(output[i])+1)+"figure",[len(code[i][0]),21]])
                 code[i][0].append(["except:pass",""])
 
-
-    # Add other strings that are not new variables.
+    
     def addOtherStrings(self):
+        '''
+        Add other strings that are not new variables.
+        '''
         code = self.code
         strings = self.strings
         stringNumber = 0
@@ -753,10 +755,11 @@ class NiW(object):
                     line = code[i][0][j][0]
                     code[i][0][j][0] = line[:line.find("sys.arg[]")]+'"'+strings[int( line[line.find("sys.arg[]")+9:line[line.                                find("sys.arg[]"):].find("!")+line.find("sys.arg[]")])-1]+'"'+line[line[line.                                find("sys.arg[]"):].find("!")+1+line.find("sys.arg[]"):]
                     stringNumber+=1
-
-
-    # Add in the number inarray for sys.argv for outputs.
+    
     def addNumberArray(self):
+        '''
+        Add in the number inarray for sys.argv for outputs.
+        '''
         code = self.code
         input = self.input
         output = self.output
@@ -764,10 +767,11 @@ class NiW(object):
             for j in range(0,len(output[i])):
                 lineToChange = code[i][0][output[i][j][1][0]][0]
                 code[i][0][output[i][j][1][0]][0] = lineToChange[:output[i][j][1][1]]+str(len(input[i])+j+1)+lineToChange[output[i][j][1][1]:]
-    
-
-    # Something becomes an output if it is printed.
+        
     def printing(self):
+        '''
+        Something becomes an output if it is printed.
+        '''
         code = self.code
         output = self.output
         input = self.input
@@ -781,16 +785,14 @@ class NiW(object):
                     j = len(code[i][0])
                 else: 
                     j+=1
-
-
-    # Change method strings to normal.
     
-    # ## Create Workflow / new Notebook
-    # <ul>
-    # <li>Place back into a new notebook (refer to http://nbconvert.readthedocs.io/en/latest/execute_api.html)</li>
-    # <li>Combine each code cell into one big string.</li>
-    # </ul>
     def createNotebook(self):
+        ''' 
+        Change method strings to normal.        
+        - Create Workflow / new Notebook    
+        - Place back into a new notebook (refer to http://nbconvert.readthedocs.io/en/latest/execute_api.html)
+        - Combine each code cell into one big string.
+        '''
         doc = self.documentation()
         imports = self.imports()
         code = self.code 
@@ -808,9 +810,10 @@ class NiW(object):
         with open(self.dirPath+'/' + self.workflowName + ".ipynb",'w') as w:
             nbf.write(nb,w)
 
-
-    # Create io.sh file.
     def createIoAndRun(self):
+        '''
+        Create io.sh file.
+        '''
         code = self.code 
         input = self.input
         output = self.output
@@ -851,6 +854,9 @@ class NiW(object):
 
 
     def inputs(self):
+        '''
+        TODO: Description
+        '''
         input = self.input
         code = self.code
         for i in range(0,len(code)):
@@ -862,9 +868,10 @@ class NiW(object):
                     else: 
                         k +=1
 
-
-    # Create run and component zip files.
     def createZipFile(self):
+        '''
+        Create run and component zip files.
+        '''
         code = self.code
         runFiles = self.runFiles
         for i in range(0,len(code)):
@@ -884,6 +891,9 @@ class NiW(object):
         os.remove(self.dirPath+'/run')
 
     def createMetadata(self):
+        '''
+        Create file with workflow inputs, outputs and parameters.
+        '''
         input = self.input
         output = self.output
         param = self.param
