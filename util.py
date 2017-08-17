@@ -3,21 +3,29 @@ import os
 
 class Util(object):
     
+    def getWorkflowName(self, filepath):
+        '''
+        - create the workflow name based on the notebook filename
+        - create the folder for the workflow files
+        '''        
+        import re
+        filename = filepath.split("/")[-1]
+        filename = filename.replace(u".ipynb","")
+        filename = filename.title()
+        filename = re.sub('[^A-Za-z0-9]+', '', filename)
+        return filename  
+        
     def createFolder(self, folder):
         '''
         Create folder or remove contents of the existing folder
         '''
-        if not os.path.exists(folder):
-            os.mkdir(folder)   
-        else:                        
+        if os.path.exists(folder):                                
             for the_file in os.listdir(folder):
                 file_path = os.path.join(folder, the_file)
-                try:
-                    if os.path.isfile(file_path):
-                        os.unlink(file_path)
-                    #elif os.path.isdir(file_path): shutil.rmtree(file_path)
-                except Exception as e:
-                    print(e)
+                if os.path.isfile(file_path):
+                    os.unlink(file_path)
+        else:
+            os.mkdir(folder) 
                     
     def findFirstQuote(self,st):
         '''
@@ -169,6 +177,9 @@ class Util(object):
             return False            
     
     def inCode(self,methName,lineCode):
+        '''
+        TODO: description
+        '''
         lineCode.replace('"',"'")
         while methName in lineCode:
             pre = ord(lineCode[lineCode.find(methName)-1])
@@ -177,4 +188,6 @@ class Util(object):
                 if lineCode[:lineCode.find(methName)].count("'") % 2 == 0:
                     return True
             lineCode = lineCode[:lineCode.find(methName)] + lineCode[lineCode.find(methName) + len(methName)+1:]
-        return False         
+        return False   
+    
+          

@@ -37,21 +37,7 @@ class NiW(object):
         self.index = None
         self.runFiles = None
         self.dirPath = "workflow"
-        self.workflowName = None
-    
-    def setWorkflowName(self, filepath):
-        '''
-        - create the workflow name based on the notebook filename
-        - create the folder for the workflow files
-        '''        
-        import re
-        filename = filepath.split("/")[-1]
-        filename = filename.replace(u".ipynb","")
-        filename = filename.title()
-        filename = re.sub('[^A-Za-z0-9]+', '', filename)
-        self.dirPath = self.dirPath + "/" + filename
-        self.workflowName = filename        
-        Util().createFolder(self.dirPath)
+        self.workflowName = None        
     
     def setNotebook(self, filepath):
         '''                
@@ -66,7 +52,10 @@ class NiW(object):
         if not os.path.exists(filepath):
             raise Exception("File does not exist: "+filepath)
         
-        self.setWorkflowName(filepath)
+        Util().createFolder(self.dirPath)
+        self.workflowName = Util().getWorkflowName(filepath)
+        self.dirPath = self.dirPath + "/" + self.workflowName
+
         # inform notebook file
         with open(filepath,"r") as r:
             # nbconvert format version = 3
