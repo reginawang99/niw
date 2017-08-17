@@ -19,28 +19,38 @@ class NiW(object):
     '''
     def __init__(self):
  
+        '''TODO: What is this?'''
         self.arr = []
         self.code = []
         self.input = []
         self.output = []
+        '''TODO: What is this?'''
         self.parameters = []
         self.param = None
+        '''TODO: what is it??'''
         self.banned = [[]]
+        '''TODO: What is this?'''
         self.b = []
         self.newVariables = []
         self.passedOnVariables = []
+        '''TODO: What is this?'''
         self.strings = []
         self.files = []
         self.methods = None
         self.stdIn = None
         self.allVar = None
+        '''TODO: What is this?'''
         self.index = None
         self.runFiles = None
         self.dirPath = "workflow"
         self.workflowName = None        
     
     def setNotebook(self, filepath):
-        '''                
+        '''         
+        @param filepath: str  
+        @return arr: list
+        @return code: list
+                   
         - set the notebook file
         
         Grab notebook cells information         
@@ -77,6 +87,9 @@ class NiW(object):
 
     def preProcessing(self):
         '''
+        @return files: list
+        @return strings: list
+        
         - Deal w strings by putting all in an array.
         - Deal w comments by putting in an array and adding it back later.
         '''        
@@ -135,6 +148,8 @@ class NiW(object):
 
     def comments(self):
         '''
+        @param code: list
+        @return code: list
         - Deal w comments by putting in an array and adding it back later.
         - If a "\" is at the end of a line, then combine with the next line.
         '''        
@@ -154,6 +169,9 @@ class NiW(object):
 
     def newLines(self):
         '''
+        @param code: list
+        @return code: list
+        
         Make a new line where there is a semicolon, except if it is in a string.
         Justification: Sometimes Jupyter API inserts ";" between assigment statements, instead of "\n".
         Example:
@@ -176,6 +194,7 @@ class NiW(object):
 
     def cleaningUp(self):
         '''
+        @param code: list
         - remove unnecessary spaces and new lines in code.
         - all single quotes ' are changed to double quotes ".
         - run under assumption that there are no single quotes ' or double quotes " in strings.
@@ -196,6 +215,10 @@ class NiW(object):
 
     def imports(self):
         '''
+        @param code: list
+        @return imports: list
+        @return b: list
+        
         Imports
         - get all of the imported libraries, puts them together, and sets up heading for code of workflow component.
         - add "matplotlib.use(\"Agg\")" if 'import matplotlib' is an imported library so that the output figure can be saved.
@@ -228,6 +251,8 @@ class NiW(object):
 
     def magicCommands(self):
         '''
+        @param code: list
+        @
         Magic Commands
         - Clean up cell magic
         - No cell magic allowed (other than for matplotlib allowed) or a value error will be thrown
@@ -247,6 +272,10 @@ class NiW(object):
  
     def organizeMethods(self):
         '''
+        @param code: list
+        @return methods: list
+        @return code: list
+        
         Methods
         - Grab all defined methods and puts in array <b>methods</b>.
         - Save name and code.
@@ -278,6 +307,9 @@ class NiW(object):
     
     def checkOpenFiles(self):
         '''
+        @param code: list
+        @return code: list
+        
         Relocate code in code cell if it uses a file opened from another cell. (Merge??)
         '''
         code = self.code
@@ -308,6 +340,11 @@ class NiW(object):
     
     def cleanAndMerge(self):
         '''
+        @param code: list
+        @param arr: list
+        @return code: list
+        @return arr: list
+        
         Cleaning up Code cells and Merge Cells
         - Remove code cells with no substantial code & merge cells if start indented.
         - If there is no running code in the notebook, a value error will be raised.
@@ -335,6 +372,11 @@ class NiW(object):
 
     def inputsAndOuputs(self, files):
         '''
+        @param code: list
+        @return input: list
+        @return output: list
+        @return code: list
+        
         Input and Outputs
         - Get list of input data or output data needed for each component.
         - If an input data is opened across cells, the cells are merged.
@@ -353,7 +395,6 @@ class NiW(object):
                     name = Util().getFileName(code[i][0][j][0])
                     indexOfName = int(name[0][10:])
                     mode = files[int(Util().getMode(code[i][0][j][0],name[0])[10:])-1]
-                    print code[i][0][j][0], name[0], mode
                     if 'r' in mode or '+' in mode:
                         input[i].append(["D"+Util().addZeros(len(input[i])+1)+files[indexOfName-1],files[indexOfName-1]])
                         code[i][0][j][0] = code[i][0][j][0][:code[i][0][j][0].find("(")+1]+"sys.argv[" + str(len(input[i])) + "]"+                 ",\""+mode+"\""+","+str(Util().buffering(code[i][0][j][0]))+code[i][0][j][0][code[i][0][j][0].rfind(")"):]
@@ -370,6 +411,8 @@ class NiW(object):
     
     def documentation(self):
         '''
+        @param arr: list
+        @return doc: list
         Documentation /  Markdown cells
         - Make the documentation of first code cell (all markdown combined).
         - Format: "Cell ("+cell number+"): "+source+"\n".
@@ -388,6 +431,16 @@ class NiW(object):
 
     def findAllVariables(self,num):
         ''' 
+        @param num: TODO: what is it??
+        @param code
+        @param input
+        @param output
+        @param banned
+        @param b: TODO: what is it??
+        @return array: TODO: what is it??
+        @return index: TODO: what is it??
+        @return banned: TODO: what is it??
+        
         TODO: description
         '''
         code = self.code
@@ -411,7 +464,7 @@ class NiW(object):
             while index < len(st):
                 char = st[index-1]
                 if index == 0 or char == " " or char == "=" or char == "(" or char == "," or char == "[" or char == ";":
-                    total = Util().checkForVariable(num,j,index,st)
+                    total = Util().checkForVariable(num,j,index,st)                    
                     if total[0]:
                         notInclude = False
                         for q in range(0,len(input[num])):
@@ -671,6 +724,17 @@ class NiW(object):
     
     def insertMethods(self):
         '''
+        @param code
+        @param methods
+        @param output
+        @return output
+        @return code
+        @param code
+        @param methods
+        @param output
+        @return code
+        @return output
+        
         Methods
         - Insert method in code cell if used in that particular code cell.
         '''
@@ -694,6 +758,13 @@ class NiW(object):
     
     def figures(self):
         '''
+        @param code
+        @param output
+        @param strings
+        @param index
+        @return code
+        @return output
+        
         Figures
         - If a call to save a figure, save it. 
         - If a figure and no save fig call in cell, save the last one.
@@ -732,6 +803,10 @@ class NiW(object):
     
     def addOtherStrings(self):
         '''
+        @param code
+        @param strings
+        @return code
+        
         Add other strings that are not new variables.
         '''
         code = self.code
@@ -747,6 +822,11 @@ class NiW(object):
     
     def addNumberArray(self):
         '''
+        @param code
+        @param input
+        @param output
+        @return code
+        
         Add in the number inarray for sys.argv for outputs.
         '''
         code = self.code
@@ -759,6 +839,12 @@ class NiW(object):
         
     def printing(self):
         '''
+        @param code
+        @param output
+        @param input
+        @return code
+        @return output
+        
         Something becomes an output if it is printed.
         '''
         code = self.code
@@ -777,6 +863,12 @@ class NiW(object):
     
     def createNotebook(self):
         ''' 
+        @param code
+        @param imports
+        @param doc
+        @param c
+        @return code
+        
         Change method strings to normal.        
         - Create Workflow / new Notebook    
         - Place back into a new notebook (refer to http://nbconvert.readthedocs.io/en/latest/execute_api.html)
@@ -801,6 +893,12 @@ class NiW(object):
 
     def createIoAndRun(self):
         '''
+        @param code
+        @param input
+        @param output
+        @return param
+        @return runFiles
+        
         Create io.sh file.
         '''
         code = self.code 
@@ -841,9 +939,12 @@ class NiW(object):
         with open(self.dirPath+"/io.sh","w") as io:
             io.write('#!/bin/bash\n\n# -----------------------------------------------\n# Option Parsing function for:\n# -i<1..n> [files.. ] -o<1..n> [files.. ]\n# \n# **** IMPORTANT ****\n# - Please pass 2 Arguments to this script\n#   - Arg1: Number of Input Data expected\n#   - Arg1: Number of Input Parameters expected\n#   - Arg2: Number of Output Data expected\n#\n# (c) Varun Ratnakar\n# -----------------------------------------------\n\nINUM=$1; shift\nPNUM=$1; shift\nONUM=$1; shift\n\nset_variables()\n{\n    for ((i=1; i<=INUM; i++)); do typeset ICOUNT$i=0; done\n    for ((i=1; i<=PNUM; i++)); do typeset PCOUNT$i=0; done\n    for ((i=1; i<=ONUM; i++)); do typeset OCOUNT$i=0; done\n}\n\nIFLAG=();\nPFLAG=();\nOFLAG=();\nreset_flags()\n{\n    for ((j=1; j<=INUM; j++)); do IFLAG[$j]=\'0\'; done\n    for ((k=1; k<=PNUM; k++)); do PFLAG[$k]=\'0\'; done\n    for ((l=1; l<=ONUM; l++)); do OFLAG[$l]=\'0\'; done\n}\n\nset_variables\nreset_flags\n\nwhile [ $# -gt 0 ]\ndo\n    case "$1" in\n        -i*) in=$(echo $1 | cut -di -f2); reset_flags; IFLAG[$in]=\'1\';;\n        -p*) ip=$(echo $1 | cut -dp -f2); reset_flags; PFLAG[$ip]=\'1\';;\n        -o*) op=$(echo $1 | cut -do -f2); reset_flags; OFLAG[$op]=\'1\';;\n        --) shift; break;;\n        -*)\n            echo >&2 \\\n            "usage: $0 -i<1..$INUM> [files.. ] -o<1..$ONUM> [files.. ]"\n            exit 1;;\n        *)  for((ind=1; ind<=INUM; ind++)); do\n                if [ "${IFLAG[$ind]}" = "1" ] \n                then \n                    x=""\n                    if [ "${INPUTS[$ind]}" != "" ]; then x="|"; fi\n                    INPUTS[$ind]="${INPUTS[$ind]}$x$1"\n                fi\n            done\n            for((ind=1; ind<=PNUM; ind++)); do\n                if [ "${PFLAG[$ind]}" = "1" ] \n                then \n                    x=""\n                    if [ "${PARAMS[$ind]}" != "" ]; then x="|"; fi\n                    PARAMS[$ind]="${PARAMS[$ind]}$x$1"\n                fi\n            done\n            for((ind=1; ind<=ONUM; ind++)); do\n                if [ "${OFLAG[$ind]}" = "1" ] \n                then \n                    x=""\n                    if [ "${OUTPUTS[$ind]}" != "" ]; then x="|"; fi\n                    OUTPUTS[$ind]="${OUTPUTS[$ind]}$x$1"\n                fi\n            done;;\n    esac\n    shift\ndone\n\nIFS=\'|\'\nfor ((i=1; i<=INUM; i++)); do typeset INPUTS$i=$(echo ${INPUTS[$i]}); done\nfor ((i=1; i<=PNUM; i++)); do typeset PARAMS$i=$(echo ${PARAMS[$i]}); done\nfor ((i=1; i<=ONUM; i++)); do typeset OUTPUTS$i=$(echo ${OUTPUTS[$i]}); done\nIFS=\' \'')
 
-
     def inputs(self):
         '''
+        @param input
+        @param code
+        @return input
+        
         TODO: Description
         '''
         input = self.input
@@ -859,12 +960,15 @@ class NiW(object):
 
     def createZipFile(self):
         '''
+        @param code
+        @param runFiles
+        
         Create run and component zip files.
         '''
         code = self.code
         runFiles = self.runFiles
         for i in range(0,len(code)):
-            with open (self.dirPath+'/run','w')as runf:
+            with open (self.dirPath+'/run','w') as runf:
                 runf.write(runFiles[i])
             with open(self.dirPath+'/Component'+str(i+1)+'.py',"w") as codef:
                 codef.write(code[i][2])
@@ -881,6 +985,10 @@ class NiW(object):
 
     def createMetadata(self):
         '''
+        @param input
+        @param output
+        @param param
+        
         Create file with workflow inputs, outputs and parameters.
         '''
         input = self.input
