@@ -57,7 +57,8 @@ class NiW(object):
         filename = filename.title()
         filename = re.sub('[^A-Za-z0-9]+', '', filename)
         self.dirPath = self.dirPath + "/" + filename
-        self.workflowName = filename
+        self.workflowName = filename        
+        Util().createFolder(self.dirPath)
     
     def setNotebook(self, filepath):
         if not os.path.exists(filepath):
@@ -608,7 +609,7 @@ class NiW(object):
                     fName = 0
                     while os.path.isfile("./" + self.dirPath + newVariables[i][2*var]+str(fName)):
                         fName+=1
-                    with open("workflow/"+newVariables[i][2*var]+str(fName)+".txt","w") as write:
+                    with open(self.dirPath+'/'+newVariables[i][2*var]+str(fName)+".txt","w") as write:
                         write.write(line)
                     stdIn[i].append([newVariables[i][2*var],newVariables[i][2*var+1],newVariables[i][2*var]+str(fName)])
                 var = var+1
@@ -804,7 +805,7 @@ class NiW(object):
         nb['cells'] = c
 
         # create new restructured notebook file
-        with open("notebook/" + self.workflowName + ".ipynb",'w') as w:
+        with open(self.dirPath+'/' + self.workflowName + ".ipynb",'w') as w:
             nbf.write(nb,w)
 
 
@@ -845,7 +846,7 @@ class NiW(object):
         self.runFiles = runFiles
         self.param = param
             
-        with open("workflow/io.sh","w") as io:
+        with open(self.dirPath+"/io.sh","w") as io:
             io.write('#!/bin/bash\n\n# -----------------------------------------------\n# Option Parsing function for:\n# -i<1..n> [files.. ] -o<1..n> [files.. ]\n# \n# **** IMPORTANT ****\n# - Please pass 2 Arguments to this script\n#   - Arg1: Number of Input Data expected\n#   - Arg1: Number of Input Parameters expected\n#   - Arg2: Number of Output Data expected\n#\n# (c) Varun Ratnakar\n# -----------------------------------------------\n\nINUM=$1; shift\nPNUM=$1; shift\nONUM=$1; shift\n\nset_variables()\n{\n    for ((i=1; i<=INUM; i++)); do typeset ICOUNT$i=0; done\n    for ((i=1; i<=PNUM; i++)); do typeset PCOUNT$i=0; done\n    for ((i=1; i<=ONUM; i++)); do typeset OCOUNT$i=0; done\n}\n\nIFLAG=();\nPFLAG=();\nOFLAG=();\nreset_flags()\n{\n    for ((j=1; j<=INUM; j++)); do IFLAG[$j]=\'0\'; done\n    for ((k=1; k<=PNUM; k++)); do PFLAG[$k]=\'0\'; done\n    for ((l=1; l<=ONUM; l++)); do OFLAG[$l]=\'0\'; done\n}\n\nset_variables\nreset_flags\n\nwhile [ $# -gt 0 ]\ndo\n    case "$1" in\n        -i*) in=$(echo $1 | cut -di -f2); reset_flags; IFLAG[$in]=\'1\';;\n        -p*) ip=$(echo $1 | cut -dp -f2); reset_flags; PFLAG[$ip]=\'1\';;\n        -o*) op=$(echo $1 | cut -do -f2); reset_flags; OFLAG[$op]=\'1\';;\n        --) shift; break;;\n        -*)\n            echo >&2 \\\n            "usage: $0 -i<1..$INUM> [files.. ] -o<1..$ONUM> [files.. ]"\n            exit 1;;\n        *)  for((ind=1; ind<=INUM; ind++)); do\n                if [ "${IFLAG[$ind]}" = "1" ] \n                then \n                    x=""\n                    if [ "${INPUTS[$ind]}" != "" ]; then x="|"; fi\n                    INPUTS[$ind]="${INPUTS[$ind]}$x$1"\n                fi\n            done\n            for((ind=1; ind<=PNUM; ind++)); do\n                if [ "${PFLAG[$ind]}" = "1" ] \n                then \n                    x=""\n                    if [ "${PARAMS[$ind]}" != "" ]; then x="|"; fi\n                    PARAMS[$ind]="${PARAMS[$ind]}$x$1"\n                fi\n            done\n            for((ind=1; ind<=ONUM; ind++)); do\n                if [ "${OFLAG[$ind]}" = "1" ] \n                then \n                    x=""\n                    if [ "${OUTPUTS[$ind]}" != "" ]; then x="|"; fi\n                    OUTPUTS[$ind]="${OUTPUTS[$ind]}$x$1"\n                fi\n            done;;\n    esac\n    shift\ndone\n\nIFS=\'|\'\nfor ((i=1; i<=INUM; i++)); do typeset INPUTS$i=$(echo ${INPUTS[$i]}); done\nfor ((i=1; i<=PNUM; i++)); do typeset PARAMS$i=$(echo ${PARAMS[$i]}); done\nfor ((i=1; i<=ONUM; i++)); do typeset OUTPUTS$i=$(echo ${OUTPUTS[$i]}); done\nIFS=\' \'')
 
 
@@ -867,31 +868,31 @@ class NiW(object):
         code = self.code
         runFiles = self.runFiles
         for i in range(0,len(code)):
-            with open ('workflow/run','w')as runf:
+            with open (self.dirPath+'/run','w')as runf:
                 runf.write(runFiles[i])
-            with open('workflow/Component'+str(i+1)+'.py',"w") as codef:
+            with open(self.dirPath+'/Component'+str(i+1)+'.py',"w") as codef:
                 codef.write(code[i][2])
-            zipf = zipfile.ZipFile('workflow/Component'+str(i+1)+'.zip', 'w', zipfile.ZIP_DEFLATED)
-            zipf.write('workflow/io.sh')
-            zipf.write('workflow/run') 
-            zipf.write('workflow/Component'+str(i+1)+'.py')
+            zipf = zipfile.ZipFile(self.dirPath+'/Component'+str(i+1)+'.zip', 'w', zipfile.ZIP_DEFLATED)
+            zipf.write(self.dirPath+'/io.sh')
+            zipf.write(self.dirPath+'/run') 
+            zipf.write(self.dirPath+'/Component'+str(i+1)+'.py')
             zipf.close()
             #remove unnecessary files
-            os.remove('workflow/Component'+str(i+1)+'.py')
+            os.remove(self.dirPath+'/Component'+str(i+1)+'.py')
         #remove unnecessary files
-        os.remove("workflow/io.sh")
-        os.remove("workflow/run")
+        os.remove(self.dirPath+'/io.sh')
+        os.remove(self.dirPath+'/run')
 
     def createMetadata(self):
         input = self.input
         output = self.output
         param = self.param
         # Create inputs metadata files.
-        with open("workflow/inputs.txt","w") as w:
+        with open(self.dirPath+'/inputs.txt',"w") as w:
             w.write(str(input))
                 
         # Params metadata files.        
-        with open("workflow/params.txt","w") as w:
+        with open(self.dirPath+"/params.txt","w") as w:
             w.write(str(param))
                 
         # Outputs metadata files.            
@@ -901,7 +902,7 @@ class NiW(object):
             for j in range(0,len(output[i])):
                 out[i].append(output[i][j][0])
                 
-        with open("workflow/outputs.txt","w") as w:
+        with open(self.dirPath+'/outputs.txt',"w") as w:
             w.write(str(out))
             
 if __name__ == "__main__":
