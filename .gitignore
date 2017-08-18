@@ -106,5 +106,5 @@ ENV/
 .settings
 
 # Project
-workflow
-notebook/test.ipynb
+/workflow
+/doc

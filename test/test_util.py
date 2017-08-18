@@ -6,21 +6,27 @@ class test_util(unittest.TestCase):
     def test_getWorkflowName(self):
         self.assertEqual("DiseaseAnalysis", Util().getWorkflowName("notebook/disease_analysis.ipynb"))
         self.assertEqual("DiseaseAnalysis2", Util().getWorkflowName("notebook/example/disease_analysis_2.ipynb"))
+        self.assertEqual("TestNotebookName", Util().getWorkflowName("notebook/Test notebook name.ipynb"))
         
     def test_createFolder(self):
         import os
         folder1 = "notebook"
         self.assertFalse(os.path.exists(folder1))
+        
+        # test creation of the folder
         Util().createFolder(folder1);
+        
         self.assertTrue(os.path.exists(folder1))
         self.assertTrue(os.listdir(folder1) == [])
         open(os.path.join(folder1, "name.txt"), 'a').close()
         self.assertTrue(os.listdir(folder1) != [])
+        
+        # test removing content of the existing folder
         Util().createFolder(folder1);
+        
         self.assertTrue(os.listdir(folder1) == [])
         self.assertTrue(os.path.exists(folder1))
         os.rmdir(folder1)
-        self.assertFalse(os.path.exists(folder1))
         
     def test_findFirstQuote(self):
         util = Util()
@@ -80,3 +86,4 @@ class test_util(unittest.TestCase):
         
 if __name__ == '__main__':     
     unittest.main()
+    
