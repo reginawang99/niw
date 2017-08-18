@@ -5,6 +5,9 @@ class Util(object):
     
     def getWorkflowName(self, filepath):
         '''
+        @param filepath: str
+        @return filename: str
+        
         - create the workflow name based on the notebook filename
         - create the folder for the workflow files
         '''        
@@ -17,6 +20,9 @@ class Util(object):
         
     def createFolder(self, folder):
         '''
+        @param folder: str
+        @return None
+        
         Create folder or remove contents of the existing folder
         '''
         if os.path.exists(folder):                                
@@ -29,8 +35,10 @@ class Util(object):
                     
     def findFirstQuote(self,st):
         '''
-        Utility Functions    
-        - find first opening quote
+        @param st: str
+        @return [int,str] index and quotation mark
+        
+        Find the first opening quote.
         '''
         if not "'" in st and not '"' in st:
             return [-1]
@@ -45,6 +53,10 @@ class Util(object):
         
     def findRealQuote(self,q,st):
         '''
+        @param q: str Quotation mark " or '
+        @param st: str
+        @return int: index TODO: what is this?
+        
         - used after findFirstQuote
         - find closing quote
         '''
@@ -61,6 +73,9 @@ class Util(object):
     
     def isOpeningFile(self,st):
         '''
+        @param st: str
+        @return Boolean
+        
         Check if string contains a open statement.
         '''
         if st.replace(" ","").find("open(") != -1:
@@ -76,6 +91,9 @@ class Util(object):
     
     def spaces(self,s):
         '''
+        @param s: str
+        @return int
+        
         Count the number of spaces in a string.
         '''
         k = 0
@@ -83,18 +101,33 @@ class Util(object):
             k=k+1
         return k 
         
-    def getFileName(self,st):
+    def getFileName(self,st):    
         '''
+        @param st: str
+        TODO: why all these values on the list?
+        @return [str,int,str,Boolean]: fileName,index,st[],Boolean,st[]
+        
         Get the file name in open() statement.
+        
+        Example:
+        str = with open(mode = sys.agrv[]1,file = sys.agrv[]2) as d: 
+        return [u'sys.agrv[]2', 32, u'with open(mode=sys.agrv[]1,file=sys.agrv[]2) as d:', False]
+        
+        str =       with open (sys.agrv[]3,sys.agrv[]4) as da: 
+        return [u'sys.agrv[]3', 15, u'    with open (sys.agrv[]3,sys.agrv[]4) as da:', False]
+        
+        str = with open(sys.agrv[]5,sys.agrv[]6) as w: 
+        return [u'sys.agrv[]5', 10, u'with open(sys.agrv[]5,sys.agrv[]6) as w:', False]
         '''
         t = st[st.index("(")+1:st.rfind(")")]
         ind = st.index("(")+1
         t = t.replace(" ","")
+        # what is 's'?
         if not t[0] == 's':
             ind = ind + t.find("file=")+5
             t = t[t.find("file=")+5:]
         t = t[:t.find("]")+2]
-        # TODO: what it means?
+        # TODO: what is it for?
         if st.count("=") == 0 or st.find("=") > st.find("("):
             return [t,ind,st[:st.index("(")]+st[st.index("("):st.rfind(")")].replace(" ","")+st[st.rfind(")"):],False]
         else:
@@ -102,19 +135,52 @@ class Util(object):
     
     def getMode(self,st,fileName):
         '''
-        TODO: description
+        @param st: str
+        @param fileName: str
+        @return str
+        
+        Returns the mode use in a open(mode="r") statement.
+        
+        Examples:
+        
+        st = with open(mode = sys.agrv[]1,file = sys.agrv[]2) as d: 
+        filename = sys.agrv[]2
+        return: sys.agrv[]1
+        
+        st = with open (sys.agrv[]3,sys.agrv[]4) as da: 
+        filename = sys.agrv[]3
+        return: sys.agrv[]4
+        
+        st = with open(sys.agrv[]5,sys.agrv[]6) as w: 
+        filename = sys.agrv[]5 
+        return: sys.agrv[]6        
         '''
         t = st[st.index("(")+1:st.rfind(")")]
-        t = t.replace(" ",""); t = t.replace(fileName,"")
+        t = t.replace(" ","")
+        t = t.replace(fileName,"")
         a = t.split(",")
-        numDouble = 0
         for i in range(0,len(a)):
+            # what is this condition for?
             if "sys.agrv[]" in a[i]:
+                # return i in sys.argv[]i
                 return a[i][a[i].find("sys.agrv[]"):a[i].find("sys.agrv[]")+11]
         return 'r' 
     
     def buffering(self,st):
         '''
+        @param st: str
+        @return int
+        
+        Example
+        st = with open(mode = sys.agrv[]1,file = sys.agrv[]2) as d: 
+        return -1
+        
+        st =    with open (sys.agrv[]3,sys.agrv[]4) as da: 
+        return -1
+        
+        st = with open(sys.agrv[]5,sys.agrv[]6) as w: 
+        return -1
+        
         TODO: description
         '''
         t = st[st.index("(")+1:st.rfind(")")]
@@ -128,6 +194,9 @@ class Util(object):
     
     def addZeros(self,num):
         '''
+        @param num: int
+        @return st: str
+        
         Add zeros "0" up to 5 digits.
         '''
         st = str(num)
@@ -137,6 +206,10 @@ class Util(object):
         
     def isPrinting(self,st,i):
         '''
+        @param st: str
+        @param i: TODO: remove?
+        @return Boolean
+        
         Check if string is a call to print function
         TODO: why i as an argument?
         '''
@@ -147,6 +220,33 @@ class Util(object):
             
     def checkForVariable(self,i,j,k,s):
         '''
+        TODO: Describe @param and @return
+        @param i
+        @param j
+        @param k
+        @param s
+        @return [Boolean,Boolean,int,int]
+        
+        Example
+        i,j,k,s
+        0 0 8 temp = []
+        return [False, False, 0, 9] 
+        
+        0 1 0 s =
+        return [True, u's', [1, 0], 2] 
+        
+        0 1 2 s =
+        return [False, False, 0, 3] 
+        
+        0 1 3 s =
+        return [False, False, 0, 4] 
+        
+        0 2 0 ga = sys.arg[]2!
+        return [True, u'ga', [2, 0], 3]
+        
+        0 2 3 ga = sys.arg[]2!
+        return [False, False, 0, 4]
+        
         TODO: what kind of check?
         '''
         if s[k].isalpha():
@@ -168,6 +268,8 @@ class Util(object):
     
     def isNumber(self,char):
         '''
+        @param char: str
+        @return Boolean
         Check if character is a number
         '''
         try:
@@ -178,6 +280,9 @@ class Util(object):
     
     def inCode(self,methName,lineCode):
         '''
+        @param methName: str
+        @param lineCode: str
+        @return Boolean
         TODO: description
         '''
         lineCode.replace('"',"'")
