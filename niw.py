@@ -20,20 +20,43 @@ class NiW(object):
     def __init__(self):
  
         '''TODO: What is this?'''
-        self.arr = []
-        self.code = []
+        self.arr = [] # all cell information - including markdown and code --> says which of the two and stores its contents
+        self.code = [] 
         self.input = []
         self.output = []
-        '''TODO: What is this?'''
-        self.parameters = []
+        '''
+        information on all of the components' parameters 
+        parameter file is the string form of this
+        TODO: What is this?'''
+        self.parameters = [] 
         self.param = None
-        '''TODO: what is it??'''
-        self.banned = [[]]
-        '''TODO: What is this?'''
+        '''        
+        local variables in a block not to passed on/used for analysis
+        for instance "for i in range(0,23):" 
+        i would be in this array
+        in an index according to its cell 
+        if only i is banned and is in cell 1 of 4, banned would look like
+        [["i"],[],[],[]]
+        TODO: what is it??'''
+        self.banned = [[]] 
+        '''TODO: What is this?
+        the import names: included to make sure that imports are not confused for variables from previous cells
+        for instance, "import pandas as pd"
+        pd would be saved as not a variable so that
+        "pd.arange(4)" system would not confuse pd as a variable and try to get pd from a previous cell
+        vs  
+        "p.add(3)" system would know p is a variable
+        '''
         self.b = []
         self.newVariables = []
         self.passedOnVariables = []
-        '''TODO: What is this?'''
+        '''TODO: What is this?
+        strings have endless possibility : they can start w ' or " and can be part of the string with \ or nothing etc.
+        it would take too long to deal with every case in every method 
+        so STRINGS (list) stores each string in the cell 
+        and replaces the string in the cell with something that cannot have been in the code originally. 
+        Later, the strings are put back when everything is finished analyzing
+        '''
         self.strings = []
         self.files = []
         self.methods = None
